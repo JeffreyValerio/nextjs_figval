@@ -4,7 +4,7 @@ interface Props {
 }
 const ContentLayout = ({ children, className }: Props) => {
     return (
-        <div className={`${className || ''} max-w-7xl mx-auto py-10 p-2 md:p-4`}>
+        <div className={`${className || ''} max-w-7xl mx-auto md:py-10 p-2 md:p-4`}>
             {children}
         </div>
     )

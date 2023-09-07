@@ -2,7 +2,7 @@ import Link from 'next/link'
 
 const Header = () => {
     return (
-        <div>
+        <div className="sticky bg-white">
             <nav>
                 <ul className='py-10 border-b flex gap-4 justify-center'>
                     <li> <Link href={'/store'}>Tienda</Link> </li>
