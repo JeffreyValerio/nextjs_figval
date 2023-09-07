@@ -32,7 +32,10 @@ const ProductInfo = ({ product }: Props) => {
             <Breadcrumb name={product.attributes.name} />
 
             <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
-                <ProductCarousel images={product.attributes.images} />
+
+                <div className="w-full md:w-auto lg:max-w-full mx-auto lg:mx-0">
+                    <ProductCarousel images={product.attributes.images} />
+                </div>
 
                 <div className="w-full flex flex-col gap-3">
                     {/* PRODUCT NAME */}
