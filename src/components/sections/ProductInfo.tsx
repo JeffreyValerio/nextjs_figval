@@ -40,7 +40,7 @@ const ProductInfo = ({ product }: Props) => {
                 <div className="w-full flex flex-col gap-3">
                     {/* PRODUCT NAME */}
                     <h1
-                        className={`font-bold text-lg md:text-[25px] uppercase leading-6 text-black/80`}>
+                        className={`font-bold text-xl md:text-[25px] uppercase leading-6 text-black/80`}>
                         <span className=" relative block pb-[18px] before:content-[''] before:w-[50px] before:h-[0px] before:border-2 before:border-[#78b7c6] before:absolute before:left-0 before:bottom-0">
                             {product.attributes.name}
                         </span>
@@ -104,7 +104,7 @@ const ProductInfo = ({ product }: Props) => {
                                         <Link
                                             href={`../category/${category.slug}`}
                                             title='clic para ver la categoría'
-                                            className="uppercase text-[14px] text-[#78b7c6] hover:text-black line-clamp-1">
+                                            className="text-turquoise hover:text-black line-clamp-1">
                                             {product.attributes.subcategory?.data?.attributes?.name}
                                         </Link>
                                     </td>
@@ -112,7 +112,10 @@ const ProductInfo = ({ product }: Props) => {
                                 <tr>
                                     <td className="font-bold">Condición</td>
                                     <td>
-                                        {product.attributes.isNew === true ? (<p>Nuevo</p>) : (<p>Producto usado</p>)}
+                                        {product.attributes.isNew === true
+                                            ? (<p className="text-[12px]">Nuevo</p>)
+                                            : (<p className="text-[12px]">Producto usado</p>)
+                                        }
                                     </td>
                                 </tr>
                                 {additional_features && additional_features[0] && Object.keys(additional_features[0]) && (
@@ -146,11 +149,10 @@ const ProductInfo = ({ product }: Props) => {
                                 <tr>
                                     <td className="font-bold">Disponibilidad</td>
                                     <td>
-                                        {product.attributes.stock > 0 ? (
-                                            <p className="text-turquoise">Disponible</p>
-                                        ) : (
-                                            <p className="text-[#DC2626]">Agotado 😥</p>
-                                        )}
+                                        {product.attributes.stock > 0
+                                            ? (<p className="text-turquoise text-[12px]">Disponible</p>)
+                                            : (<p className="text-[#DC2626] text-[12px]">Agotado 😥</p>)
+                                        }
                                     </td>
                                 </tr>
                             </tbody>
