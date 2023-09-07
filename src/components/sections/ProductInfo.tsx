@@ -62,7 +62,7 @@ const ProductInfo = ({ product }: Props) => {
 
                     {/* PRICE */}
                     <div className="flex items-center flex-wrap">
-                        <p className="text-[#78b7c6] mr-3 text-[24px] font-bold">
+                        <p className="text-turquoise mr-3 text-[24px] font-bold">
                             {format(product.attributes.price * 1.13)}
                             <span className="ml-1 text-[14px] text-black/80">IVAI</span>
                         </p>
@@ -80,7 +80,6 @@ const ProductInfo = ({ product }: Props) => {
                     {/* SHORT DESCRIPTION */}
                     <p className="border-b pb-2">
                         Lorem ipsum dolor sit amet consectetur adipisicing elit. Expedita, ea error eos veniam necessitatibus molestias delectus ad quo quod mollitia, soluta alias quaerat illum iure obcaecati cupiditate fugit suscipit! Sapiente!
-                        Nam officia minus dolore sunt quaerat similique pariatur illum accusamus adipisci iste vel nemo tenetur excepturi, explicabo nulla voluptate soluta ipsam. Quibusdam ex sed voluptatem nihil necessitatibus ducimus commodi dicta.
                     </p>
 
                     {/* SPECS */}
