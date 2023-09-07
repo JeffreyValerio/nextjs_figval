@@ -10,6 +10,13 @@ const config: Config = {
     fontFamily: {
       sans: ['Poppins', 'sans-serif'],
     },
+    colors: {
+      'blue': '#87c5d4', // AzulTurquesaClaro
+      'white': '#fefefe', // BlancoNieve
+      'turquoise': '#64b8c8', // AzulTurquesa
+      'orange': '#f7b83d', // AmarilloNaranja
+      'black': '#000000' // Negro
+    },
     extend: {
       backgroundImage: {
         'gradient-radial': 'radial-gradient(var(--tw-gradient-stops))',

@@ -1,7 +1,9 @@
+import Link from "next/link";
+
 export default function HomePage() {
   return (
     <main>
-      HOME PAGE
+      <Link href={'/1'}>Slug</Link>
     </main>
   )
-} 
+}  
