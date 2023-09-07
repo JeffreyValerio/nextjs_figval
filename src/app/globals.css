@@ -15,6 +15,10 @@
         font-family: (var(--font-family));
         scroll-behavior: smooth;
     }
+
+    p {
+        font-size: 14px;
+    }
 }
 
 @layer components {}

@@ -1,5 +1,3 @@
-import { Attributes } from "react";
-
 export interface IProduct {
     name                : string;
     price               : number;
@@ -21,7 +19,8 @@ export interface IProduct {
     thumbnail           : Images;
     brand               : Brand;
     images              : Images;
-    category            : PurpleCategory;
+    subcategory         : any;
+    category            : any; // FIX THIS, NEEDS SUBCATEGORIES
     warranty            : any;
 }
 

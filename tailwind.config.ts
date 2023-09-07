@@ -15,7 +15,8 @@ const config: Config = {
       'white': '#fefefe', // BlancoNieve
       'turquoise': '#64b8c8', // AzulTurquesa
       'orange': '#f7b83d', // AmarilloNaranja
-      'black': '#000000' // Negro
+      'black': '#000000', // Negro
+      'gray': '#f2f2f2' // GRIS 
     },
     extend: {
       backgroundImage: {
