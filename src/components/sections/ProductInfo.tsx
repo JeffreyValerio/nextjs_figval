@@ -23,6 +23,7 @@ const ProductInfo = ({ product }: Props) => {
     const brand = delve(product, 'attributes.brand.data.attributes')
     const category = delve(product, 'attributes.category.data.attributes')
     const additional_features = delve(product, 'attributes.additional_features')
+    const warranty = delve(product, 'attributes.warranty.data.attributes')
 
     // NO PRODUCT, NO PAGE
     if (!product) { return <></> }
@@ -158,6 +159,18 @@ const ProductInfo = ({ product }: Props) => {
                             </tbody>
                         </table>
                     </div>
+
+                    {/* WARRANTY              */}
+                    {warranty?.description != null ? (
+                        <div className='p-2 bg-[#f2f2f2]'>
+                            <h3 className='font-bold text-[14px] mb-1 flex gap-1 items-center'>
+                                <GoShieldCheck className='text-[18px] text-green' /> GARANTÍA DE PROVEEDOR
+                            </h3>
+                            <p className='font-light lowercase text-[12px]'>{warranty.description}</p>
+                        </div>
+                    ) : (
+                        <></>
+                    )}
                 </div>
             </div>
 
