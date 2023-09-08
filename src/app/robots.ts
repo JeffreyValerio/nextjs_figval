@@ -10,4 +10,4 @@ export default function robots() {
         sitemap: `${baseUrl}/sitemap.xml`,
         host: baseUrl
     }
-}
+} 

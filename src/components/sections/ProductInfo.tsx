@@ -40,11 +40,8 @@ const ProductInfo = ({ product }: Props) => {
 
                 <div className="w-full flex flex-col gap-3">
                     {/* PRODUCT NAME */}
-                    <h1
-                        className={`font-bold text-3xl md:text-4xl uppercase leading-8 text-black/80`}>
-                        <span className=" relative block pb-[18px] before:content-[''] before:w-[50px] before:h-[0px] before:border-2 before:border-[#78b7c6] before:absolute before:left-0 before:bottom-0">
-                            {product.attributes.name}
-                        </span>
+                    <h1 className={`font-bold text-3xl md:text-4xl uppercase leading-8 text-black/80`}>
+                        {product.attributes.name}
                     </h1>
 
                     {/* PRODUCT RATING */}
@@ -63,7 +60,7 @@ const ProductInfo = ({ product }: Props) => {
 
                     {/* PRICE */}
                     <div className="flex items-center flex-wrap">
-                        <p className="text-turquoise mr-3 text-[24px] font-bold">
+                        <p className="text-black mr-3 text-3xl font-bold">
                             {format(product.attributes.price * 1.13)}
                             <span className="ml-1 text-[14px] text-black/80">IVAI</span>
                         </p>

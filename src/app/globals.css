@@ -21,6 +21,35 @@
     }
 }
 
-@layer components {}
+@layer components {
+
+    .productCarousel.carousel-root .slide {
+        min-width: 100%;
+    }
+    .productCarousel.carousel-root .slide img {
+        width: 100%;
+    }
+
+    .productCarousel.carousel-root .thumbs-wrapper {
+        margin: 0;
+        padding-top: 8px;
+    }
+
+    .productCarousel.carousel-root .carousel .thumb {
+        border: none;
+        /* background: #000;  */
+        height: 60px;
+        width: 60px;
+
+    }
+
+    .productCarousel.carousel-root .carousel .thumb img {
+        width: 100%;
+        height: 100%;
+        object-fit: contain;
+        object-position: center;
+        background-image: center;
+    }
+}
 
 @layer utilities {}
