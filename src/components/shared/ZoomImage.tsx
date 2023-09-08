@@ -31,7 +31,7 @@ function ZoomImage({ key, src }: any) {
             onMouseMove={handleMouseMove}
             onMouseOut={handleMouseOut}
         >
-            <img className='block' key={key} src={src} alt="Imagen" style={zoomStyle} />
+            <img className='block' key={key} src={src} alt="Imagen" style={zoomStyle} role='img' />
             <style jsx>{`
         .zoom-image {
           position: relative;
