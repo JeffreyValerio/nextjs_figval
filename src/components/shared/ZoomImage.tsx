@@ -2,7 +2,7 @@
 
 import { useState } from 'react';
 
-function ZoomImage({ key, src }: any) {
+function ZoomImage({ src }: any) {
     const [zoomStyle, setZoomStyle] = useState({
         transform: 'scale(1) translate(0, 0)',
     });
@@ -31,7 +31,7 @@ function ZoomImage({ key, src }: any) {
             onMouseMove={handleMouseMove}
             onMouseOut={handleMouseOut}
         >
-            <img className='block' key={key} src={src} alt="Imagen" style={zoomStyle} role='img' />
+            <img className='block' src={src} alt="Imagen" style={zoomStyle} role='img' />
             <style jsx>{`
         .zoom-image {
           position: relative;
@@ -39,8 +39,7 @@ function ZoomImage({ key, src }: any) {
           height: auto;
           overflow: hidden;
           background: #f2f2f2;
-          padding: 5px;
-        }
+        } 
 
         .zoom-image img {
           width: 100%;

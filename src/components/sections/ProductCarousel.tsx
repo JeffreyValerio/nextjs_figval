@@ -1,4 +1,5 @@
 'use client'
+import React from 'react';
 
 import { Carousel } from 'react-responsive-carousel';
 import "react-responsive-carousel/lib/styles/carousel.min.css";
@@ -22,15 +23,15 @@ const ProductCarousel = ({ images }: Props) => {
             >
                 {images.data?.map((image: any) => (
                     // eslint-disable-next-line @next/next/no-img-element
-                    <>
-                        <ZoomImage key={image.id} src={`${image.attributes.url || '/images/no-image.png'}`} />
+                    <React.Fragment key={image.id}>
+                        <ZoomImage src={`${image.attributes.url || '/images/no-image.png'}`} />
                         <img
                             className="object-scale-down bg-[#f2f2f2]"
-                            key={image.id}
+
                             src={`${image.attributes.url || '/images/no-image.png'}`}
                             alt={image.attributes.name} role='img'
                         />
-                    </>
+                    </React.Fragment>
                 ))}
             </Carousel>
         </div>

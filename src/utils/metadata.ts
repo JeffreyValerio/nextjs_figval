@@ -6,28 +6,28 @@ export const metadata = (product: any, previousImages: any) => {
         alternates: {
             canonical: '/',
         },
-        title: product.attributes.name,
-        description: product.attributes.description,
-        category: product.attributes.category?.data?.attributes?.name,
+        title: product?.attributes?.name,
+        description: product?.attributes?.description,
+        category: product?.attributes?.category?.data?.attributes?.name,
         openGraph: {
-            title: product.attributes.name,
-            description: product.attributes.description,
-            images: [`${product.attributes.thumbnail.data.attributes.formats.small.url}`, ...previousImages],
+            title: product?.attributes?.name,
+            description: product?.attributes?.description,
+            images: [`${product?.attributes?.thumbnail.data.attributes.formats.small.url}`, ...previousImages],
             siteName: 'Figval',
             type: 'website',
             emails: 'ventas@figval.com',
             phoneNumbers: '(506) 87654321',
-            url: product.attributes.slug,
+            url: product?.attributes?.slug,
         },
         twitter: {
             card: 'summary_large_image',
             title: 'Figval',
-            description: product.attributes.description,
+            description: product?.attributes?.description,
             creator: 'Figval',
-            images: [`${product.attributes.thumbnail.data.attributes.formats.small.url}`, ...previousImages],
+            images: [`${product?.attributes?.thumbnail.data.attributes.formats.small.url}`, ...previousImages],
         },
         formatDetection: {
-            url: product.attributes.slug,
+            url: product?.attributes?.slug,
             email: false,
             address: false,
             telephone: false,
@@ -39,7 +39,7 @@ export const metadata = (product: any, previousImages: any) => {
             googleBot: {
                 index: true,
                 follow: true,
-                noimageindex: true,
+                noimageindex: false,
                 'max-video-preview': -1,
                 'max-image-preview': 'large',
                 'max-snippet': -1,
@@ -55,8 +55,8 @@ export const metadata = (product: any, previousImages: any) => {
             },
         },
         other: {
-            price: format(product.attributes.price),
-            rating: product.attributes.rating
+            price: format(product?.attributes?.price),
+            rating: product?.attributes?.rating
         },
     };
 
