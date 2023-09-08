@@ -77,7 +77,7 @@ const ProductSpecs = ({ product }: any) => {
                     <td className="font-bold">Disponibilidad</td>
                     <td>
                         {product.attributes.stock > 0
-                            ? (<p className="text-turquoise text-[12px]">Disponible</p>)
+                            ? (<p className="text-[12px]">Disponible</p>)
                             : (<p className="text-[#DC2626] text-[12px]">Agotado 😥</p>)
                         }
                     </td>

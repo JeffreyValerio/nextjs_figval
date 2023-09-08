@@ -1,12 +1,25 @@
-import { IProduct } from '@/interfaces'
+'use client'
+
+import { useContext, useState } from 'react';
+
+import Image from 'next/image';
+import Link from 'next/link';
+
+import { ICart, IProduct } from '@/interfaces'
 import delve from 'dlv';
-import { Breadcrumb, ProductCarousel, ProductSpecs, Rating } from '..'
+
+import { Breadcrumb, ItemCounter, ProductCarousel, ProductSpecs, Rating } from '..'
 
 import { CiBoxes } from 'react-icons/ci'
 import { GoShieldCheck } from 'react-icons/go'
+import { MdOutlineShoppingBag } from 'react-icons/md'
+import { FaWhatsapp } from 'react-icons/fa'
 import { format } from '@/utils'
-import Image from 'next/image';
-import Link from 'next/link';
+
+import { ToastContainer, toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
+import { CartContext } from '@/contexts';
+
 
 interface Props {
     product: {
@@ -20,6 +33,43 @@ const ProductInfo = ({ product }: Props) => {
 
     const imageBrand = delve(product, 'attributes.brand.data.attributes.image.data.attributes.url')
     const warranty = delve(product, 'attributes.warranty.data.attributes')
+
+    const { addProductToCart } = useContext(CartContext)
+
+    const [tempCartProduct, setTempCartProduct] = useState<ICart>({
+        id: product.id,
+        name: product.attributes.name,
+        image: product?.attributes?.thumbnail?.data?.attributes?.formats.small.url,
+        price: product.attributes.price,
+        size: undefined,
+        slug: product.attributes.slug,
+        quantity: 1,
+        stock: product.attributes.stock
+    })
+
+    const updatedQuantity = (quantity: number) => {
+        setTempCartProduct(currentProduct => ({
+            ...currentProduct,
+            quantity
+        }))
+    }
+
+    const addToCart = () => {
+        // if (!tempCartProduct.size) { return }
+        addProductToCart(tempCartProduct)
+        toast.success(`¡${product.attributes.name} 🎉 SE AGREGÓ AL CARRITO!`, {
+            toastId: product.id,
+            className: "uppercase text-bold",
+            position: "bottom-right",
+            autoClose: 5000,
+            hideProgressBar: false,
+            closeOnClick: true,
+            pauseOnHover: true,
+            draggable: true,
+            progress: undefined,
+            theme: "light",
+        });
+    }
 
     // NO PRODUCT, NO PAGE
     if (!product) { return <></> }
@@ -73,7 +123,7 @@ const ProductInfo = ({ product }: Props) => {
 
                     <Link href={'https://wa.me/50660265671'} target='_blank' className='flex justify-center bg-[#f2f2f2] w-full md:w-[300px]'>
                         <Image className='w-[300px] h-[50px]' src={'/images/whatsapp-btn.png'} alt='whatsapp-number' width={300} height={50} />
-                    </Link> 
+                    </Link>
 
                     {/* SHORT DESCRIPTION */}
                     <p className="border-b pb-2">
@@ -83,6 +133,44 @@ const ProductInfo = ({ product }: Props) => {
                     {/* SPECS */}
                     <div className=" border-b pb-2">
                         <ProductSpecs product={product} />
+                    </div>
+
+
+                    <div className="grid grid-cols-4 items-center">
+
+                        <ItemCounter
+                            currentValue={tempCartProduct.quantity || 1}
+                            maxValue={product.attributes.stock}
+                            updatedQuantity={updatedQuantity}
+                        />
+                        {(product.attributes.stock > 0) ? (
+                            <div className='grid gap-1 items-center py-4 w-full'>
+                                <button
+                                    onClick={addToCart}
+                                    aria-label={`Add ${product.attributes.name} to your cart`}
+                                    type="button"
+                                    className="bg-black px-4 py-3 text-base font-medium text-white hover:bg-violet-700 focus:outline-none focus:ring-2 focus:ring-violet-500"
+                                >
+                                    <span className="flex justify-center items-center gap-1">
+                                        <MdOutlineShoppingBag className="w-5 h-5" />
+                                        <span>Agregar</span>
+                                    </span>
+                                </button> 
+                            </div>
+                        ) : (
+                            <div className='py-4'>
+                                <div className='flex items-center'>
+                                    <button
+                                        type="button"
+                                        className="bg-black/60 px-4 py-3 text-base font-medium text-white hover:bg-violet-700 focus:outline-none focus:ring-2 focus:ring-violet-500"
+                                    >
+                                        <span className="flex items-center gap-1">
+                                            <FaWhatsapp className="w-5 h-5" /> Consultar disponibilidad
+                                        </span>
+                                    </button>
+                                </div>
+                            </div>
+                        )}
                     </div>
 
                     {/* BRAND & WARRANTY */}
@@ -112,10 +200,8 @@ const ProductInfo = ({ product }: Props) => {
                         </div>
                     </div>
 
-       
                 </div>
-
-            </div>
+            </div >
 
             {/* <pre>{JSON.stringify(product, null, 2)}</pre> */}
         </>

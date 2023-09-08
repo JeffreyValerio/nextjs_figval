@@ -16,7 +16,7 @@ export interface IProduct {
     technical_sheet     : null;
     isActive            : boolean;
     additional_features : AdditionalFeatures[];
-    thumbnail           : Images;
+    thumbnail           : any; // FIX THIS
     brand               : Brand;
     images              : Images;
     subcategory         : any;
