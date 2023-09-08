@@ -5,6 +5,8 @@ import { Breadcrumb, ProductCarousel, ProductSpecs, Rating } from '..'
 import { CiBoxes } from 'react-icons/ci'
 import { GoShieldCheck } from 'react-icons/go'
 import { format } from '@/utils'
+import Image from 'next/image';
+import Link from 'next/link';
 
 interface Props {
     product: {
@@ -36,7 +38,7 @@ const ProductInfo = ({ product }: Props) => {
                     <h1 className={`font-bold text-3xl md:text-4xl uppercase leading-8 text-black/80`}>
                         {product.attributes.name}
                     </h1>
- 
+
                     {/* PRODUCT RATING */}
                     <div className="flex items-center gap-2 text-[12px]">
                         <Rating value={product.attributes.rating} max={5} />
@@ -78,18 +80,23 @@ const ProductInfo = ({ product }: Props) => {
                         <ProductSpecs product={product} />
                     </div>
 
-                    {/* WARRANTY              */}
-                    {warranty?.description != null ? (
-                        <div className='p-2 bg-[#f2f2f2]'>
+                    {/* WARRANTY */}
+                    {warranty?.description != null
+                        ? (<div className='p-2 bg-[#f2f2f2]'>
                             <h2 className='font-bold text-[14px] mb-1 flex gap-1 items-center'>
                                 <GoShieldCheck className='text-[18px] text-green' /> GARANTÍA DE PROVEEDOR
                             </h2>
                             <p className='font-light lowercase text-[12px]'>{warranty.description}</p>
-                        </div>
-                    ) : (
-                        <></>
-                    )}
+                        </div>)
+                        : (<></>)
+                    }
+
+                    <Link href={'https://wa.me/50660265671'} target='_blank'>
+                        <Image className='w-[300px] h-[50px]' src={'/images/whatsapp-btn.png'} alt='whatsapp-number' width={300} height={50} />
+                    </Link>
+
                 </div>
+
             </div>
 
             {/* <pre>{JSON.stringify(product, null, 2)}</pre> */}
