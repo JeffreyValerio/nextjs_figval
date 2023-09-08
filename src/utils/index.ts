@@ -7,4 +7,56 @@ export const format = (value: number) => {
     })
 
     return formatter.format(value)
-}   
+}
+
+export const generateProductMetadata = (product: any, previousImages: any) => {
+    const metadata = {
+        metadataBase: new URL('https:nextjs-figval.vercer.app'),
+        alternates: {
+            canonical: '/',
+        },
+        title: product.attributes.name,
+        description: product.attributes.description,
+        category: product.attributes.category?.data?.attributes?.name,
+        openGraph: {
+            title: product.attributes.name,
+            description: product.attributes.description,
+            images: [`${product.attributes.thumbnail.data.attributes.formats.small.url}`, ...previousImages],
+            siteName: 'Figval',
+            type: 'website',
+            emails: 'ventas@figval.com',
+            phoneNumbers: '87654321',
+            url: product.attributes.slug,
+        },
+        formatDetection: {
+            url: product.attributes.slug,
+            email: false,
+            address: false,
+            telephone: false,
+        },
+        robots: {
+            index: false,
+            follow: true,
+            nocache: true,
+            googleBot: {
+                index: true,
+                follow: false,
+                noimageindex: true,
+                'max-video-preview': -1,
+                'max-image-preview': 'large',
+                'max-snippet': -1,
+            },
+        },
+        icons: {
+            icon: '/favicon.icon',
+            shortcut: '/favicon.icon',
+            apple: '/favicon.icon',
+            other: {
+                rel: 'favicon',
+                url: '/favicon.icon',
+            },
+        },
+    };
+
+    return metadata;
+}

@@ -3,9 +3,7 @@ import delve from 'dlv';
 import { Breadcrumb, ProductCarousel, ProductSpecs, Rating } from '..'
 
 import { CiBoxes } from 'react-icons/ci'
-import { FaWhatsapp } from 'react-icons/fa'
 import { GoShieldCheck } from 'react-icons/go'
-import { MdOutlineShoppingBag } from 'react-icons/md'
 import { format } from '@/utils'
 
 interface Props {
@@ -38,7 +36,7 @@ const ProductInfo = ({ product }: Props) => {
                     <h1 className={`font-bold text-3xl md:text-4xl uppercase leading-8 text-black/80`}>
                         {product.attributes.name}
                     </h1>
-
+ 
                     {/* PRODUCT RATING */}
                     <div className="flex items-center gap-2 text-[12px]">
                         <Rating value={product.attributes.rating} max={5} />
