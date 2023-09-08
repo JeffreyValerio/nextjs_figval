@@ -1,15 +1,16 @@
 import Link from 'next/link';
 
 import delve from 'dlv';
+import { AiOutlineLink } from 'react-icons/ai'
 
-const ProductSpecs = ({product}:any) => {
+const ProductSpecs = ({ product }: any) => {
 
     const brand = delve(product, 'attributes.brand.data.attributes')
     const category = delve(product, 'attributes.category.data.attributes')
     const additional_features = delve(product, 'attributes.additional_features')
 
     return (
-        <table className='w-[400px] text-[12px]'>
+        <table className='w-[400px] text-[12px] uppercase'>
             <tbody className="">
                 <tr>
                     <td className="font-bold">Código</td>
@@ -25,9 +26,10 @@ const ProductSpecs = ({product}:any) => {
                 </tr>
                 <tr>
                     <td className="font-bold">Categoría</td>
-                    <td>
+                    <td className="flex gap-1 items-center">
+                        <AiOutlineLink className="w-4 h-4 text-green" />
                         <Link
-                            href={`../category/${category.slug}`}
+                            href={`../category/${category?.slug}`}
                             title='clic para ver la categoría'
                             className="text-[12px] line-clamp-1">
                             {product.attributes.category?.data?.attributes?.name}
@@ -54,7 +56,7 @@ const ProductSpecs = ({product}:any) => {
                                     if (key !== '__component' && key !== 'id' && key !== 'tallas' && additional_features[0][key] !== null) {
                                         return (
                                             <tr key={`${index}-${key}`}>
-                                                <td className="font-bold capitalize">
+                                                <td className="font-bold uppercase">
                                                     {key}
                                                 </td>
                                                 <td>

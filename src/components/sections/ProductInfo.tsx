@@ -18,6 +18,7 @@ interface Props {
 
 const ProductInfo = ({ product }: Props) => {
 
+    const imageBrand = delve(product, 'attributes.brand.data.attributes.image.data.attributes.url')
     const warranty = delve(product, 'attributes.warranty.data.attributes')
 
     // NO PRODUCT, NO PAGE
@@ -55,7 +56,7 @@ const ProductInfo = ({ product }: Props) => {
 
                     {/* PRICE */}
                     <div className="flex items-center flex-wrap">
-                        <p className="text-black mr-3 text-3xl font-bold">
+                        <p className="text-black/90 mr-3 text-3xl font-bold">
                             {format(product.attributes.price * 1.13)}
                             <span className="ml-1 text-[14px] text-black/80">IVAI</span>
                         </p>
@@ -70,6 +71,10 @@ const ProductInfo = ({ product }: Props) => {
                             )}
                     </div>
 
+                    <Link href={'https://wa.me/50660265671'} target='_blank' className='flex justify-center bg-[#f2f2f2] w-full md:w-[300px]'>
+                        <Image className='w-[300px] h-[50px]' src={'/images/whatsapp-btn.png'} alt='whatsapp-number' width={300} height={50} />
+                    </Link> 
+
                     {/* SHORT DESCRIPTION */}
                     <p className="border-b pb-2">
                         Lorem ipsum dolor sit amet consectetur adipisicing elit. Expedita, ea error eos veniam necessitatibus molestias delectus ad quo quod mollitia, soluta alias quaerat illum iure obcaecati cupiditate fugit suscipit! Sapiente!
@@ -80,21 +85,34 @@ const ProductInfo = ({ product }: Props) => {
                         <ProductSpecs product={product} />
                     </div>
 
-                    {/* WARRANTY */}
-                    {warranty?.description != null
-                        ? (<div className='p-2 bg-[#f2f2f2]'>
-                            <h2 className='font-bold text-[14px] mb-1 flex gap-1 items-center'>
-                                <GoShieldCheck className='text-[18px] text-green' /> GARANTÍA DE PROVEEDOR
-                            </h2>
-                            <p className='font-light lowercase text-[12px]'>{warranty.description}</p>
-                        </div>)
-                        : (<></>)
-                    }
+                    {/* BRAND & WARRANTY */}
+                    <div className="grid grid-cols-2 gap-4 items-center">
+                        {/* IMAGE BRAND */}
+                        <div className='gap-2 items-center justify-center p-2'>
+                            <Image
+                                src={imageBrand}
+                                width={200}
+                                height={100}
+                                alt='name'
+                                className="w-full object-scale-down max-h-[75px]"
+                            />
+                        </div>
 
-                    <Link href={'https://wa.me/50660265671'} target='_blank'>
-                        <Image className='w-[300px] h-[50px]' src={'/images/whatsapp-btn.png'} alt='whatsapp-number' width={300} height={50} />
-                    </Link>
+                        {/* WARRANTY */}
+                        <div className='items-center justify-center'>
+                            {warranty?.description != null
+                                ? (<div className='p-2 bg-[#f2f2f2]'>
+                                    <h2 className='font-bold text-[14px] flex gap-1 items-center'>
+                                        <GoShieldCheck className='w-6 h-6 text-green' /> GARANTÍA DE PROVEEDOR
+                                    </h2>
+                                    <p className='font-light lowercase text-[12px]'>{warranty.description}</p>
+                                </div>)
+                                : (<></>)
+                            }
+                        </div>
+                    </div>
 
+       
                 </div>
 
             </div>

@@ -39,6 +39,7 @@ function ZoomImage({ src }: any) {
           height: auto;
           overflow: hidden;
           background: #f2f2f2;
+          cursor: pointer;
         } 
 
         .zoom-image img {
