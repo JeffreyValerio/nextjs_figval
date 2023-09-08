@@ -8,4 +8,3 @@ export const format = (value: number) => {
 
     return formatter.format(value)
 }
-
