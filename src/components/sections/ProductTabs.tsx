@@ -14,7 +14,7 @@ function classNames(...classes: any) {
 
 const ProductTabs = ({ className, features, technical_sheet }: any) => {
     return (
-        <div className={`w-full px-2 sm:px-0 pt-8 ${className || ''}`}>
+        <div className={`w-full pt-8 ${className || ''}`}>
             <Tab.Group>
                 <Tab.List className="flex space-x-1 rounded-xl bg-turquoise p-1">
                     <Tab
