@@ -23,12 +23,13 @@ const ProductCarousel = ({ images }: Props) => {
                 {images.data?.map((image: any) => (
                     // eslint-disable-next-line @next/next/no-img-element
                     <>
-                        <ZoomImage key={image.id}  src={`${image.attributes.url || '/images/no-image.png'}`} />
+                        <ZoomImage key={image.id} src={`${image.attributes.url || '/images/no-image.png'}`} />
                         <img
                             className="object-scale-down bg-[#f2f2f2]"
-                            key={image.id} 
+                            key={image.id}
                             src={`${image.attributes.url || '/images/no-image.png'}`}
-                            alt={image.attributes.name} />
+                            alt={image.attributes.name} role='img'
+                        />
                     </>
                 ))}
             </Carousel>
