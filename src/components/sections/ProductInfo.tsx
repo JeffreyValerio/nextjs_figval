@@ -94,7 +94,7 @@ const ProductInfo = ({ product }: Props) => {
                 </div>
             </div>
 
-            {/* <pre>{JSON.stringify(product, null, 2)}</pre> */}
+            <pre>{JSON.stringify(product, null, 2)}</pre>
         </>
     )
 }
