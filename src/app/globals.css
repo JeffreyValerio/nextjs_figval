@@ -26,9 +26,21 @@
     .productCarousel.carousel-root .slide {
         min-width: 100%;
     }
-    .productCarousel.carousel-root .slide img {
-        width: 100%;
+
+    .productCarousel.carousel-root .slide {
+        position: relative;
+        overflow: hidden;
     }
+
+    .productCarousel.carousel-root .slide img {
+        display: none;
+    }
+
+    .productCarousel.carousel-root .zoom-image img {
+        width: 100%;
+        display: block;
+    }
+
 
     .productCarousel.carousel-root .thumbs-wrapper {
         margin: 0;
@@ -37,7 +49,6 @@
 
     .productCarousel.carousel-root .carousel .thumb {
         border: none;
-        /* background: #000;  */
         height: 60px;
         width: 60px;
 
