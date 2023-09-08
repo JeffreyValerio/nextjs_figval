@@ -1,4 +1,4 @@
-import { FaStar } from "react-icons/fa";
+import { FaStar , FaRegStar} from "react-icons/fa";
 
 const Rating = ({ value, max }: any) => {
   return (
@@ -9,7 +9,7 @@ const Rating = ({ value, max }: any) => {
       ))}
       {/* Renderizar estrellas vacías */}
       {[...Array(max - value)].map((_, index) => (
-        <FaStar key={index} className="h-3 w-3 text-black" />
+        <FaRegStar key={index} className="h-3 w-3" />
       ))}
     </div>
   );

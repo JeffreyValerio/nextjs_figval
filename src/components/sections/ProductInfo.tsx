@@ -36,7 +36,7 @@ const ProductInfo = ({ product }: Props) => {
 
                 <div className="w-full flex flex-col gap-3">
                     {/* PRODUCT NAME */}
-                    <h1 className={`font-bold text-3xl md:text-4xl uppercase leading-8 text-black/80`}>
+                    <h1 className={`font-bold text-3xl md:text-4xl uppercase leading-8 text-black/90`}>
                         {product.attributes.name}
                     </h1>
 
@@ -102,7 +102,7 @@ const ProductInfo = ({ product }: Props) => {
                         <div className='items-center justify-center'>
                             {warranty?.description != null
                                 ? (<div className='p-2 bg-[#f2f2f2]'>
-                                    <h2 className='font-bold text-[14px] flex gap-1 items-center'>
+                                    <h2 className='font-bold text-[14px] md:text-[16px] flex gap-1 items-center'>
                                         <GoShieldCheck className='w-6 h-6 text-green' /> GARANTÍA DE PROVEEDOR
                                     </h2>
                                     <p className='font-light lowercase text-[12px]'>{warranty.description}</p>
