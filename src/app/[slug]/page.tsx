@@ -2,7 +2,7 @@ import type { ResolvingMetadata } from 'next'
 
 import { ProductInfo } from "@/components"
 import { strapiFetch } from "@/libs"
-import { generateProductMetadata } from '@/utils'
+import { metadata } from '@/utils/metadata'
 
 interface Props { 
     params: { slug: string }
@@ -17,7 +17,7 @@ export async function generateMetadata(
     const product: any = productData.data[0]
     const previousImages = (await parent).openGraph?.images || []
 
-    return generateProductMetadata(product, previousImages)
+    return metadata(product, previousImages)
 }
 
 const ProductDetailsPage = async ({ params }: Props) => {
