@@ -26,7 +26,52 @@
         -webkit-appearance: none;
         appearance: none;
         margin: 0;
-        /* Opcional: Puedes ajustar el margen según tus preferencias */
+    }
+
+    .markdown {
+        font-family: (var(--font-family));
+    }
+
+    .markdown h2 {
+        font-weight: bold;
+        font-size: 20px;
+        text-transform: uppercase;
+        margin: 0 !important;
+    }
+
+    .markdown ul {
+        margin: 0;
+        padding: 0;
+        list-style-type: circle;
+        margin: 15px 0;
+    }
+
+    .markdown ul li {
+        margin: 5px 0;
+        font-weight: 300;
+    }
+
+    .markdown a {
+        font-weight: 300;
+        color: blue;
+    }
+
+    /* Estilo para los saltos de línea en Markdown */
+    .markdown p {
+        font-weight: 300;
+        margin-bottom: 1em;
+        /* Espacio adicional después de cada párrafo */
+    }
+
+    /* Estilo para los títulos en Markdown */
+    .markdown h1,
+    .markdown h2,
+    .markdown h3,
+    .markdown h4,
+    .markdown h5,
+    .markdown h6 {
+        margin-bottom: 1em;
+        /* Espacio adicional después de cada título */
     }
 
 }

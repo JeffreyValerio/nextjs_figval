@@ -76,6 +76,19 @@ const ProductInfo = ({ product }: Props) => {
 
     return (
         <>
+            <ToastContainer
+                position="bottom-right"
+                autoClose={5000}
+                hideProgressBar={false}
+                newestOnTop={false}
+                closeOnClick
+                rtl={false}
+                pauseOnFocusLoss
+                draggable
+                pauseOnHover
+                theme="light"
+            />
+
             <Breadcrumb name={product.attributes.name} />
 
             <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
@@ -135,16 +148,14 @@ const ProductInfo = ({ product }: Props) => {
                         <ProductSpecs product={product} />
                     </div>
 
-
-                    <div className="grid grid-cols-4 items-center">
-
+                    <div className="grid grid-cols-3 md:grid-cols-4 items-center">
                         <ItemCounter
                             currentValue={tempCartProduct.quantity || 1}
                             maxValue={product.attributes.stock}
                             updatedQuantity={updatedQuantity}
                         />
-                        {(product.attributes.stock > 0) ? (
-                            <div className='grid gap-1 items-center py-4 w-full'>
+                        {(product.attributes.stock > 0)
+                            ? (<div className='grid gap-1 items-center py-2 w-full'>
                                 <button
                                     onClick={addToCart}
                                     aria-label={`Add ${product.attributes.name} to your cart`}
@@ -155,10 +166,9 @@ const ProductInfo = ({ product }: Props) => {
                                         <MdOutlineShoppingBag className="w-5 h-5" />
                                         <span>Agregar</span>
                                     </span>
-                                </button> 
-                            </div>
-                        ) : (
-                            <div className='py-4'>
+                                </button>
+                            </div>)
+                            : (<div className='py-2'>
                                 <div className='flex items-center'>
                                     <button
                                         type="button"
@@ -169,8 +179,8 @@ const ProductInfo = ({ product }: Props) => {
                                         </span>
                                     </button>
                                 </div>
-                            </div>
-                        )}
+                            </div>)
+                        }
                     </div>
 
                     {/* BRAND & WARRANTY */}

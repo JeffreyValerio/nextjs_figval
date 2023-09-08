@@ -1,6 +1,6 @@
 import type { ResolvingMetadata } from 'next'
 
-import { ProductInfo } from "@/components"
+import { ProductInfo, ProductTabs } from "@/components"
 import { strapiFetch } from "@/libs"
 import { metadata } from '@/utils/metadata'
 
@@ -28,11 +28,8 @@ const ProductDetailsPage = async ({ params }: Props) => {
 
     return (
         <>
-            {product && (
-                <>
-                    <ProductInfo product={product} />
-                </>
-            )}
+            <ProductInfo product={product} />
+            <ProductTabs features={product.attributes.features} technical_sheet={product.attributes.technical_sheet} />
         </>
     )
 }
