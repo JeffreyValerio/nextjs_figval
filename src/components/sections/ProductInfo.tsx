@@ -103,7 +103,7 @@ const ProductInfo = ({ product }: Props) => {
                     <h1 className={`font-bold text-3xl md:text-4xl uppercase leading-8 text-black/90`}>
                         {product.attributes.name}
                     </h1>
- 
+
                     {/* PRODUCT RATING */}
                     <div className="flex items-center gap-2 text-[12px]">
                         <Rating value={product.attributes.rating} max={5} />
@@ -135,7 +135,9 @@ const ProductInfo = ({ product }: Props) => {
                             )}
                     </div>
 
-                    <Link href={'https://wa.me/50660265671'} target='_blank' className='flex justify-center bg-[#f2f2f2] w-full md:w-[300px]'>
+                    <Link
+                        href={`https://wa.me/50660265671?text=Hola, me interesa comprar el producto: %0A${process.env.NEXT_PUBLIC_URL}/${encodeURIComponent(product.attributes.slug)}`} target='_blank'
+                        className='flex justify-center bg-[#f2f2f2] w-full md:w-[300px]'>
                         <Image className='w-[300px] h-[50px]' src={'/images/whatsapp-btn.png'} alt='whatsapp-number' width={300} height={50} />
                     </Link>
 
@@ -171,14 +173,14 @@ const ProductInfo = ({ product }: Props) => {
                             </div>)
                             : (<div className='py-2'>
                                 <div className='flex items-center'>
-                                    <button
-                                        type="button"
+                                    <Link
+                                        href={`https://wa.me/50660265671?text=Hola, me interesa comprar el producto: %0A${process.env.NEXT_PUBLIC_URL}/${encodeURIComponent(product.attributes.slug)}`} target='_blank'
                                         className="bg-black/60 px-4 py-3 text-base font-medium text-white hover:bg-violet-700 focus:outline-none focus:ring-2 focus:ring-violet-500"
                                     >
                                         <span className="flex items-center gap-1">
                                             <FaWhatsapp className="w-5 h-5" /> Consultar
                                         </span>
-                                    </button>
+                                    </Link>
                                 </div>
                             </div>)
                         }
@@ -211,7 +213,7 @@ const ProductInfo = ({ product }: Props) => {
                                 : (<></>)
                             }
                         </div>
-                    </div> 
+                    </div>
 
                 </div>
             </div >

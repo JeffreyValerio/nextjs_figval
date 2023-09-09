@@ -38,12 +38,12 @@ const ProductCard = ({ product: { attributes: product }, className }: any) => {
                     )}
                 </div>
             </div>
-            <div className="my-2 ">
+            <div className="my-2 flex justify-between">
                 <Rating value={product?.rating} max={5} />
+                <p>SKU: {product.code}</p>
             </div>
 
             <div>
-                <p>Código: {product.code}</p>
             </div>
           <AddToCartButtom product={product}/>
         </div>

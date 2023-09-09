@@ -9,6 +9,7 @@ import 'react-toastify/dist/ReactToastify.css';
 import { CartContext } from '@/contexts';
 import { ICart, IProduct } from '@/interfaces';
 import { ItemCounter } from '.';
+import Link from 'next/link';
 
 interface Props {
     product: {
@@ -20,9 +21,9 @@ interface Props {
 
 const AddToCartButtom = ({ product }: any) => {
 
-    
+
     const { addProductToCart } = useContext(CartContext)
-    
+
     const [tempCartProduct, setTempCartProduct] = useState<ICart>({
         id: product?.id,
         name: product?.name,
@@ -33,14 +34,14 @@ const AddToCartButtom = ({ product }: any) => {
         quantity: 1,
         stock: product?.stock
     })
-    
+
     const updatedQuantity = (quantity: number) => {
         setTempCartProduct(currentProduct => ({
             ...currentProduct,
             quantity
         }))
     }
-    
+
     const addToCart = () => {
         // if (!tempCartProduct.size) { return }
         addProductToCart(tempCartProduct)
@@ -59,7 +60,7 @@ const AddToCartButtom = ({ product }: any) => {
     }
 
     if (!product) { return <></> }
-    
+
     return (
         <>
             <ToastContainer
@@ -96,13 +97,13 @@ const AddToCartButtom = ({ product }: any) => {
                         </button>
                     </div>)
                     : (<div className='py-2 w-full flex items-center'>
-                        <button
-                            type="button"
+                        <Link
+                            href={`https://wa.me/50660265671?text=Hola, me interesa comprar el producto: %0A${process.env.NEXT_PUBLIC_URL}/${encodeURIComponent(product.slug)}`} target='_blank'
                             className="justify-center w-full flex gap-2 items-center bg-black/60 px-2 py-3 text-base font-medium text-white hover:bg-violet-700 focus:outline-none focus:ring-2 focus:ring-violet-500"
                         >
                             <FaWhatsapp className="w-5 h-5" />
                             <p className='text-[12px]'>No disponibe</p>
-                        </button>
+                        </Link>
                     </div>)
                 }
             </div>
