@@ -21,20 +21,20 @@ const Footer = async () => {
                 <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6 items-center justify-center pt-[100px] sm:pt-[120px]">
                     {/* PANEL 1 */}
                     <div className="flex flex-col gap-4">
-                        <h5 className={`text-[16px] uppercase mb-[15px] before:content-[' '] before:border-l before:border-[#0cc0df] before:mr-2 before:border-2`}>
+                        <h3 className={`text-[16px] uppercase mb-[15px] before:content-[' '] before:border-l before:border-turquoise before:mr-2 before:border-2`}>
                             CONTACTO
-                        </h5>
-                        <span className="flex gap-1 items-center text-[14px] hover:text-blue-400">
-                            <FaWhatsapp className="text-[16px]" />
+                        </h3>
+                        <span className="flex gap-2 items-center text-[14px] hover:text-blue-400">
+                            <FaWhatsapp className="w-5 h-5" />
                             <Link href={`https://wa.me/50687654321`} target="_blank">(506) 8765-4321</Link>
                         </span>
-                        <span className="flex gap-1 items-center text-[14px] hover:text-blue-[#0cc0df]">
-                            <FaRegEnvelope className="text-[16px]" />
+                        <span className="flex gap-2 items-center text-[14px] hover:text-blue-turquoise">
+                            <FaRegEnvelope className="w-5 h-5" />
                             <Link href={`mailto:ventas@figval.com`} target="_blank">ventas@figval.com</Link>
                         </span>
-                        <span className="flex gap-1 items-center text-[14px] hover:text-blue-[#0cc0df]">
-                            <FaClock className="text-[16px]" />
-                            Lunes a sábado de 8:00am - 6:00pm
+                        <span className="flex gap-2 items-center text-[14px] hover:text-blue-turquoise">
+                            <FaClock className="w-5 h-5" />
+                            Lun-vie: 8am-5pm | sáb: 8am-12pm
                         </span>
                         <Image src={`https://blueskytechmage.com/eren/media/wysiwyg/payment.png`} alt="payments-methods" width={218} height={28} />
                     </div>

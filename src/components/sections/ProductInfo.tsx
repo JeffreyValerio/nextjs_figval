@@ -32,6 +32,7 @@ interface Props {
 const ProductInfo = ({ product }: Props) => {
 
     const imageBrand = delve(product, 'attributes.brand.data.attributes.image.data.attributes.url')
+    const category = delve(product, 'attributes.category.data.attributes')
     const warranty = delve(product, 'attributes.warranty.data.attributes')
 
     const { addProductToCart } = useContext(CartContext)
@@ -102,7 +103,7 @@ const ProductInfo = ({ product }: Props) => {
                     <h1 className={`font-bold text-3xl md:text-4xl uppercase leading-8 text-black/90`}>
                         {product.attributes.name}
                     </h1>
-
+ 
                     {/* PRODUCT RATING */}
                     <div className="flex items-center gap-2 text-[12px]">
                         <Rating value={product.attributes.rating} max={5} />
@@ -175,7 +176,7 @@ const ProductInfo = ({ product }: Props) => {
                                         className="bg-black/60 px-4 py-3 text-base font-medium text-white hover:bg-violet-700 focus:outline-none focus:ring-2 focus:ring-violet-500"
                                     >
                                         <span className="flex items-center gap-1">
-                                            <FaWhatsapp className="w-5 h-5" /> Consultar disponibilidad
+                                            <FaWhatsapp className="w-5 h-5" /> Consultar
                                         </span>
                                     </button>
                                 </div>
@@ -187,13 +188,15 @@ const ProductInfo = ({ product }: Props) => {
                     <div className="grid grid-cols-2 gap-4 items-center">
                         {/* IMAGE BRAND */}
                         <div className='gap-2 items-center justify-center p-2'>
-                            <Image
-                                src={imageBrand}
-                                width={200}
-                                height={100}
-                                alt='name'
-                                className="w-full object-scale-down max-h-[75px]"
-                            />
+                            <Link href={category?.slug} title={`clic para ver la tienda ${product.attributes.brand.data.attributes.name}`}>
+                                <Image
+                                    src={imageBrand}
+                                    width={200}
+                                    height={100}
+                                    alt='name'
+                                    className="w-full object-scale-down max-h-[75px]"
+                                />
+                            </Link>
                         </div>
 
                         {/* WARRANTY */}
@@ -208,7 +211,7 @@ const ProductInfo = ({ product }: Props) => {
                                 : (<></>)
                             }
                         </div>
-                    </div>
+                    </div> 
 
                 </div>
             </div >

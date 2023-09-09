@@ -8,7 +8,6 @@ const Header = () => {
                     <li> <Link href={'/'}>Homepage</Link> </li>
                     <li> <Link href={'/store'}>Tienda</Link> </li>
                     <li> <Link href={'/categories'}>Categorías</Link> </li>
-                    <li> <Link href={'/contact'}>Contacto</Link> </li>
                 </ul>
             </nav>
         </div>

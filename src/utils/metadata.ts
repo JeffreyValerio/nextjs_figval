@@ -2,17 +2,17 @@ import { format } from "util";
 
 export const metadata = (product: any, previousImages: any) => {
     const metadata = {
-        metadataBase: new URL('https:nextjs-figval.vercer.app'),
+        metadataBase: new URL('https:nextjs-figval.vercel.app'),
         alternates: {
             canonical: '/',
         },
         title: product?.attributes?.name,
-        description: product?.attributes?.description,
+        description: `product?.attributes?.description`,
         category: product?.attributes?.category?.data?.attributes?.name,
         openGraph: {
             title: product?.attributes?.name,
-            description: product?.attributes?.description,
-            images: [`${product?.attributes?.thumbnail?.data?.attributes?.formats?.small?.url}` || `/images/no-image.png`, ...previousImages],
+            description: `product?.attributes?.description`,
+            images: [product?.attributes?.thumbnail?.data?.attributes?.formats?.small?.url, ...previousImages],
             siteName: 'Figval',
             type: 'website',
             emails: 'ventas@figval.com',
@@ -22,9 +22,9 @@ export const metadata = (product: any, previousImages: any) => {
         twitter: {
             card: 'summary_large_image',
             title: 'Figval',
-            description: product?.attributes?.description,
+            description: `product?.attributes?.description`,
             creator: 'Figval',
-            images: [`${product?.attributes?.thumbnail?.data?.attributes?.formats?.small?.url}` || `/images/no-image.png`, ...previousImages],
+            images: [product?.attributes?.thumbnail?.data?.attributes?.formats?.small?.url, ...previousImages],
         },
         formatDetection: {
             url: product?.attributes?.slug,

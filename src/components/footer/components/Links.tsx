@@ -9,12 +9,12 @@ const Links = ({ links }: any) => {
                 {links.map((navigation: any) => (
                     <div key={navigation.id}>
                         <li className="list-none flex flex-col gap-4 text-[14px]">
-                            <h5 className={`text-[16px] uppercase mb-[15px] before:content-[' '] before:border-l before:border-[#0cc0df] before:mr-2 before:border-2`}>
+                            <h3 className={`text-[16px] uppercase mb-[15px] before:content-[' '] before:border-l before:border-turquoise before:mr-2 before:border-2`}>
                                 {navigation.header}
-                            </h5>
+                            </h3> 
                             {navigation.links.map((link: any) => (
                                 <div key={link.id}>
-                                    <Link href={link.href} className="hover:text-[#0cc0df]">{link.label}</Link>
+                                    <Link href={link.href} className="hover:text-turquoise">{link.label}</Link>
                                 </div>
                             ))}
                         </li>
