@@ -30,20 +30,20 @@ const ItemCounter = ({ currentValue, maxValue, updatedQuantity }: Props) => {
     };
 
     return (
-        <div className="flex gap-2 justify-center">
-            <button onClick={() => addOrRemove(-1)} type="button">
-                <AiOutlineMinus className="w-6 h-6" />
+        <div className="flex gap-2 justify-center bg-[#f2f2f2] px-2">
+            <button onClick={() => addOrRemove(-1)} type="button" className='flex justify-center items-center w-full'>
+                <AiOutlineMinus className="w-4 h-4" />
             </button>
             <input
                 type="number"
-                className="w-14 text-center flex h-10 border border-input bg-transparent px-3 py-2 text-sm font-medium focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2"
+                className="max-w-8 text-center flex h-10 border-input p-0 text-sm font-medium focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2"
                 min={1}
                 max={maxValue}
                 value={inputValue}
                 onChange={handleInputChange} // Agregar el manejador onChange
             />
-            <button onClick={() => addOrRemove(1)} type="button">
-                <AiOutlinePlus className="w-6 h-6" />
+            <button onClick={() => addOrRemove(1)} type="button" className='flex justify-center items-center w-full'>
+                <AiOutlinePlus className="w-4 h-4" />
             </button>
         </div>
     );

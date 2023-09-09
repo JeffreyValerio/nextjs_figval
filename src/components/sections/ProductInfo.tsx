@@ -8,7 +8,7 @@ import Link from 'next/link';
 import { ICart, IProduct } from '@/interfaces'
 import delve from 'dlv';
 
-import { Breadcrumb, ItemCounter, ProductCarousel, ProductSpecs, Rating } from '..'
+import { AddToCartButtom, Breadcrumb, ItemCounter, ProductCarousel, ProductSpecs, Rating } from '..'
 
 import { CiBoxes } from 'react-icons/ci'
 import { GoShieldCheck } from 'react-icons/go'
@@ -151,7 +151,9 @@ const ProductInfo = ({ product }: Props) => {
                         <ProductSpecs product={product} />
                     </div>
 
-                    <div className="grid grid-cols-3 md:grid-cols-4 items-center">
+
+                    <div className="grid gap-2 grid-cols-3 md:grid-cols-4 items-center">
+                    {/* <AddToCartButtom product={product.attributes} /> */}
                         <ItemCounter
                             currentValue={tempCartProduct.quantity || 1}
                             maxValue={product.attributes.stock}
@@ -163,7 +165,7 @@ const ProductInfo = ({ product }: Props) => {
                                     onClick={addToCart}
                                     aria-label={`Add ${product.attributes.name} to your cart`}
                                     type="button"
-                                    className="bg-black px-4 py-3 text-base font-medium text-white hover:bg-violet-700 focus:outline-none focus:ring-2 focus:ring-violet-500"
+                                    className="bg-black px-4 py-2 text-base font-medium text-white hover:bg-violet-700 focus:outline-none focus:ring-2 focus:ring-violet-500"
                                 >
                                     <span className="flex justify-center items-center gap-1">
                                         <MdOutlineShoppingBag className="w-5 h-5" />
