@@ -30,7 +30,7 @@ const ItemCounter = ({ currentValue, maxValue, updatedQuantity }: Props) => {
     };
 
     return (
-        <div className="flex gap-2 justify-center bg-[#f2f2f2] px-2">
+        <div className="grid grid-cols-3 justify-center bg-[#f2f2f2]">
             <button onClick={() => addOrRemove(-1)} type="button" className='flex justify-center items-center w-full'>
                 <AiOutlineMinus className="w-4 h-4" />
             </button>
