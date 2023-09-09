@@ -140,7 +140,7 @@ const ProductInfo = ({ product }: Props) => {
                         className='flex justify-center bg-[#f2f2f2] w-full md:w-[300px]'>
                         <Image className='w-[300px] h-[50px]' src={'/images/whatsapp-btn.png'} alt='whatsapp-number' width={300} height={50} />
                     </Link>
-
+ 
                     {/* SHORT DESCRIPTION */}
                     <p className="border-b pb-2">
                         Lorem ipsum dolor sit amet consectetur adipisicing elit. Expedita, ea error eos veniam necessitatibus molestias delectus ad quo quod mollitia, soluta alias quaerat illum iure obcaecati cupiditate fugit suscipit! Sapiente!

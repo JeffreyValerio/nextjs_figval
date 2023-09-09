@@ -86,7 +86,7 @@ const AddToCartButtom = ({ product }: any) => {
                     : (<></>)
                 }
                 {(product?.stock > 0)
-                    ? (<div className='py-2 flex justify-end'>
+                    ? (<div className='py-2 flex justify-end'> 
                         <button
                             onClick={addToCart}
                             aria-label={`Add ${product?.name} to your cart`}
