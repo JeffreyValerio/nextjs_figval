@@ -19,10 +19,10 @@ interface Props {
 }
 
 const AddToCartButtom = ({ product }: any) => {
-    if (!product) { return <></> }
 
+    
     const { addProductToCart } = useContext(CartContext)
-
+    
     const [tempCartProduct, setTempCartProduct] = useState<ICart>({
         id: product?.id,
         name: product?.name,
@@ -33,14 +33,14 @@ const AddToCartButtom = ({ product }: any) => {
         quantity: 1,
         stock: product?.stock
     })
-
+    
     const updatedQuantity = (quantity: number) => {
         setTempCartProduct(currentProduct => ({
             ...currentProduct,
             quantity
         }))
     }
-
+    
     const addToCart = () => {
         // if (!tempCartProduct.size) { return }
         addProductToCart(tempCartProduct)
@@ -58,6 +58,8 @@ const AddToCartButtom = ({ product }: any) => {
         });
     }
 
+    if (!product) { return <></> }
+    
     return (
         <>
             <ToastContainer
