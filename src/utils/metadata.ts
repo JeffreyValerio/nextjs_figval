@@ -12,7 +12,7 @@ export const metadata = (product: any, previousImages: any) => {
         openGraph: {
             title: product?.attributes?.name,
             description: product?.attributes?.description,
-            images: [`${product?.attributes?.thumbnail?.data?.attributes?.formats.small.url}` || `/images/no-image.png`, ...previousImages],
+            images: [`${product?.attributes?.thumbnail?.data?.attributes?.formats?.small?.url}` || `/images/no-image.png`, ...previousImages],
             siteName: 'Figval',
             type: 'website',
             emails: 'ventas@figval.com',
@@ -24,7 +24,7 @@ export const metadata = (product: any, previousImages: any) => {
             title: 'Figval',
             description: product?.attributes?.description,
             creator: 'Figval',
-            images: [`${product?.attributes?.thumbnail?.data?.attributes?.formats.small.url}` || `/images/no-image.png`, ...previousImages],
+            images: [`${product?.attributes?.thumbnail?.data?.attributes?.formats?.small?.url}` || `/images/no-image.png`, ...previousImages],
         },
         formatDetection: {
             url: product?.attributes?.slug,

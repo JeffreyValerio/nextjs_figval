@@ -39,7 +39,7 @@ const ProductInfo = ({ product }: Props) => {
     const [tempCartProduct, setTempCartProduct] = useState<ICart>({
         id: product.id,
         name: product.attributes.name,
-        image: product?.attributes?.thumbnail?.data?.attributes?.formats.small.url,
+        image: product?.attributes?.thumbnail?.data?.attributes?.formats?.small?.url,
         price: product.attributes.price,
         size: undefined,
         slug: product.attributes.slug,
