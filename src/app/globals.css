@@ -34,7 +34,7 @@
 
     .markdown h2 {
         font-weight: bold;
-        font-size: 20px;
+        font-size: 18px;
         text-transform: uppercase;
         margin: 0 !important;
     }
@@ -49,6 +49,7 @@
     .markdown ul li {
         margin: 5px 0;
         font-weight: 300;
+        font-size: 14px;
     }
 
     .markdown a {
