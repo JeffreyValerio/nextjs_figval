@@ -4,6 +4,7 @@ import React from 'react';
 import { Carousel } from 'react-responsive-carousel';
 import "react-responsive-carousel/lib/styles/carousel.min.css";
 import ZoomImage from '../shared/ZoomImage';
+import Image from 'next/image';
 
 interface Props {
     images: {
@@ -27,9 +28,10 @@ const ProductCarousel = ({ images }: Props) => {
                         <ZoomImage src={`${image.attributes.url || '/images/no-image.png'}`} />
                         <img
                             className="object-scale-down bg-[#f2f2f2]"
-
                             src={`${image.attributes.url || '/images/no-image.png'}`}
                             alt={image.attributes.name} role='img'
+                            width={60} height={60}
+                            fetchPriority='high'
                         />
                     </React.Fragment>
                 ))}
