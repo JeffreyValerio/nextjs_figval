@@ -2,7 +2,7 @@
 
 import Link from "next/link";
 
-import { Categories, Hero } from "@/components";
+import { Categories, Hero, NewArrivals } from "@/components";
 import { strapiFetch } from "@/libs";
 
 export default async function HomePage() {
@@ -23,7 +23,9 @@ export default async function HomePage() {
   return (
     <main>
       <Hero hero={hero} />
-      <Categories categories={categories} />
+      {/* <Categories categories={categories} /> */}
+
+      <NewArrivals newArrivals={newArrivals} />
 
       <Link href={'/metabo-wev-17-125-quick-inox-600517420-esmeriladora-angular-125-mm-5-7600-rpm-1700-w-110-120-v-50-60-hz'}>Slug</Link>
     </main>

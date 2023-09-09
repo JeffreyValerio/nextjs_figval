@@ -1,7 +1,16 @@
+import AddToCartButtom from "./AddToCartButtom";
 import Breadcrumb from "./Breadcrumb";
 import ItemCounter from "./ItemCounter";
 import Rating from "./Rating";
+import Title from "./Title";
 
-export { Breadcrumb, ItemCounter, Rating }
+export {
+    AddToCartButtom,
+    Breadcrumb,
+    ItemCounter,
+    Rating,
+    Title
+}
+
 
 

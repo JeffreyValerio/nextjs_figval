@@ -18,7 +18,7 @@ const Footer = async () => {
     return (
         <footer className="dark:bg-black/90 text-white/90">
             <ContentLayout className="pb-[30px] sm:pb-[60px] px-[15px]">
-                <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6 items-center justify-center pt-[100px] sm:pt-[120px]">
+                <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6 items-center justify-center pt-[30px] sm:pt-[60px]">
                     {/* PANEL 1 */}
                     <div className="flex flex-col gap-4">
                         <h3 className={`text-[16px] uppercase mb-[15px] before:content-[' '] before:border-l before:border-turquoise before:mr-2 before:border-2`}>
