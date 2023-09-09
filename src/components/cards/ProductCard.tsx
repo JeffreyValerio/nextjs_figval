@@ -16,7 +16,7 @@ const ProductCard = ({ product: { attributes: product }, className }: any) => {
                     <span className="absolute z-10 bg-[#64B8C8] text-center text-white w-full py-1 text-[13px] top-[14px] left-7 -translate-x-1/2 transform -rotate-45">Agotado</span>
                 )}
                 <Image
-                    className="bg-[#f2f2f2] object-scale-down bg-center w-full min-h-[180px] sm:h-[250px] p-2"
+                    className="bg-[#f2f2f2] object-scale-down bg-center w-full border h-[250px] p-2"
                     src={image || '/images/no-image.png'}
                     alt={`${imageName || 'no image'}`}
                     width={200}

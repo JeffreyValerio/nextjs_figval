@@ -1,3 +1,4 @@
+import Bannners from "./Banners";
 import Categories from "./Categories";
 import Hero from "./Hero";
 import NewArrivals from "./NewArrivals";
@@ -7,6 +8,7 @@ import ProductSpecs from "./ProductSpecs";
 import ProductTabs from "./ProductTabs";
 
 export {
+    Bannners,
     Categories,
     Hero,
     NewArrivals,
@@ -15,5 +17,6 @@ export {
     ProductSpecs,
     ProductTabs
 }
+
 
 
