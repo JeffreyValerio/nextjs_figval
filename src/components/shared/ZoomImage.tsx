@@ -1,5 +1,6 @@
 'use client'
 
+import Image from 'next/image';
 import { useState } from 'react';
 
 function ZoomImage({ src }: any) {
@@ -31,8 +32,8 @@ function ZoomImage({ src }: any) {
             onMouseMove={handleMouseMove}
             onMouseOut={handleMouseOut}
         >
-            <img className='block' src={src} alt="Imagen" style={zoomStyle} role='img' />
-            <style jsx>{`
+            <Image className='block' src={src} alt="Imagen" style={zoomStyle} role='img' width={500} height={300} />
+            <style jsx>{` 
         .zoom-image {
           position: relative;
           width: 100%; /* Ajusta el ancho y alto según tus necesidades */
