@@ -136,11 +136,11 @@ const ProductInfo = ({ product }: Props) => {
                     </div>
 
                     <Link
-                        href={`https://wa.me/50660265671?text=Hola, me interesa comprar el producto: %0A${process.env.NEXT_PUBLIC_URL}/${encodeURIComponent(product.attributes.slug)}`} target='_blank'
+                        href={`https://wa.me/50660265671?text=Hola, me interesa comprar el producto código: ${product.attributes.code} %0A${process.env.NEXT_PUBLIC_URL}/${encodeURIComponent(product.attributes.slug)}`} target='_blank'
                         className='flex justify-center bg-[#f2f2f2] w-full md:w-[300px]'>
                         <Image className='w-[300px] h-[50px]' src={'/images/whatsapp-btn.png'} alt='whatsapp-number' width={300} height={50} />
                     </Link>
- 
+
                     {/* SHORT DESCRIPTION */}
                     <p className="border-b pb-2">
                         Lorem ipsum dolor sit amet consectetur adipisicing elit. Expedita, ea error eos veniam necessitatibus molestias delectus ad quo quod mollitia, soluta alias quaerat illum iure obcaecati cupiditate fugit suscipit! Sapiente!
@@ -174,7 +174,7 @@ const ProductInfo = ({ product }: Props) => {
                             : (<div className='py-2'>
                                 <div className='flex items-center'>
                                     <Link
-                                        href={`https://wa.me/50660265671?text=Hola, me interesa comprar el producto: %0A${process.env.NEXT_PUBLIC_URL}/${encodeURIComponent(product.attributes.slug)}`} target='_blank'
+                                        href={`https://wa.me/50660265671?text=Hola, me interesa comprar el producto código: ${product.attributes.code} %0A${process.env.NEXT_PUBLIC_URL}/${encodeURIComponent(product.attributes.slug)}`} target='_blank'
                                         className="bg-black/60 px-4 py-3 text-base font-medium text-white hover:bg-violet-700 focus:outline-none focus:ring-2 focus:ring-violet-500"
                                     >
                                         <span className="flex items-center gap-1">

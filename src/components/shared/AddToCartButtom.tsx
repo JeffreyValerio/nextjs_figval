@@ -98,7 +98,7 @@ const AddToCartButtom = ({ product }: any) => {
                     </div>)
                     : (<div className='py-2 w-full flex items-center'>
                         <Link
-                            href={`https://wa.me/50660265671?text=Hola, me interesa comprar el producto: %0A${process.env.NEXT_PUBLIC_URL}/${encodeURIComponent(product.slug)}`} target='_blank'
+                            href={`https://wa.me/50660265671?text=Hola, me interesa comprar el producto código: ${product.code} %0A${process.env.NEXT_PUBLIC_URL}/${encodeURIComponent(product.slug)}`} target='_blank'
                             className="justify-center w-full flex gap-2 items-center bg-black/60 px-2 py-3 text-base font-medium text-white hover:bg-violet-700 focus:outline-none focus:ring-2 focus:ring-violet-500"
                         >
                             <FaWhatsapp className="w-5 h-5" />
