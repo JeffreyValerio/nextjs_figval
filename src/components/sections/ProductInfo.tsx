@@ -200,8 +200,8 @@ const ProductInfo = ({ product }: Props) => {
                         <div className='items-center justify-center'>
                             {warranty?.description != null
                                 ? (<div className='p-2 bg-[#f2f2f2]'>
-                                    <h2 className='font-bold text-[14px] md:text-[16px] flex gap-1 items-center'>
-                                        <GoShieldCheck className='w-6 h-6 text-green' /> GARANTÍA DE PROVEEDOR
+                                    <h2 className='font-bold text-[12px] md:text-[16px] flex gap-1 items-center'>
+                                        <GoShieldCheck className='w-6 h-6 text-green' />GARANTÍA DE PROVEEDOR
                                     </h2>
                                     <p className='font-light lowercase text-[12px]'>{warranty.description}</p>
                                 </div>)

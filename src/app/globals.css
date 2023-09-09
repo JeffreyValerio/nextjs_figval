@@ -74,6 +74,11 @@
         /* Espacio adicional después de cada título */
     }
 
+
+    .markdown strong {
+        font-weight: bold;
+    }
+
 }
 
 @layer components {
@@ -106,7 +111,6 @@
         border: none;
         height: 60px;
         width: 60px;
-
     }
 
     .productCarousel.carousel-root .carousel .thumb img {
