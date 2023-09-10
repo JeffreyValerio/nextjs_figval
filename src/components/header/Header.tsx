@@ -2,7 +2,7 @@
 
 import Link from 'next/link'
 import Image from 'next/image'
-import { usePathname, useRouter, useSearchParams } from 'next/navigation'
+import { useSearchParams } from 'next/navigation'
 
 
 import { signOut, useSession } from 'next-auth/react'
@@ -60,7 +60,7 @@ const Header = () => {
                 </ContentLayout>
             </header>
             <nav className='sticky top-0 z-10 bg-black/90 text-white/90'>
-                <ContentLayout>
+                <ContentLayout> 
                     <ul className='flex gap-4 justify-center'>
                         <li> <Link href={'/'}>Homepage</Link> </li>
                         <li> <Link href={'/store'}>Tienda</Link> </li>
