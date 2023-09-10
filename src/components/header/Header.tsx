@@ -16,8 +16,8 @@ const Header = () => {
     const session = useSession()
     const user: any = session.data?.user
 
-    const searchParams = useSearchParams()
-    const destination = searchParams.get('p') || '/'
+    // const searchParams = useSearchParams()
+    // const destination = searchParams.get('p') || '/'
 
     const { logout } = useContext(AuthContext)
 
@@ -39,10 +39,8 @@ const Header = () => {
                                     |
                                     <li>
                                         <button
-                                            onClick={() => {
-                                                signOut({ callbackUrl: destination }),
-                                                    logout()
-                                            }}>Salir</button>
+                                            onClick={() => { signOut(), logout() }}
+                                        >Salir</button>
                                     </li>
                                 </>
                             ) : (
@@ -73,3 +71,6 @@ const Header = () => {
 }
 
 export default Header
+
+
+
