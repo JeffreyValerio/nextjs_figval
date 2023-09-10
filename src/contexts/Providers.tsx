@@ -9,11 +9,9 @@ interface Props {
 const Providers = ({ children }: Props) => {
     return (
         <SessionProvider>
-            <AuthProvider>
-                <CartProvider>
-                    {children}
-                </CartProvider>
-            </AuthProvider>
+            <CartProvider>
+                {children}
+            </CartProvider>
         </SessionProvider>
     )
 }

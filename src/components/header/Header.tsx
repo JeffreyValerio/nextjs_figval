@@ -29,7 +29,7 @@ const Header = () => {
                     <div className={`block sm:flex items-center justify-center sm:justify-between sm:h-[45px] border-b border-[#888888} text-[#999] text-[13px] leading-[45px]`}>
                         <div className='justify-center flex'>CRC</div>
                         <ul className="flex gap-4 font-extralight justify-end">
-                            {user ? (
+                            {/* {user ? (
                                 <>
                                     <li className="flex gap-2 items-center">
                                         <Image className="rounded-full" src={user.image ? user.image as string : user.avatar || '/images/no-picture.png'}
@@ -54,7 +54,7 @@ const Header = () => {
                                         <Link href={'/account/register'}>Registrarme</Link>
                                     </li>
                                 </>
-                            )}
+                            )} */}
                         </ul>
                     </div>
                 </ContentLayout>
