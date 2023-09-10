@@ -93,7 +93,7 @@ export const AuthProvider = ({ children }: any) => {
 
         try {
             const data = await fetcher(`${process.env.NEXT_PUBLIC_STRAPI_API_URL}/auth/local/register`,
-                {
+                { 
                     method: 'POST',
                     headers: {
                         'Content-Type': 'application/json',

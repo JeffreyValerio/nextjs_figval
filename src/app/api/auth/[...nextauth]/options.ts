@@ -3,6 +3,10 @@ import GoogleProvider from 'next-auth/providers/google'
 
 export const options: NextAuthOptions = {
     secret: process.env.NEXTAUTH_SECRET,
+    pages: {
+        signIn: '/account/login',
+        newUser: '/account/register'
+    },
     providers: [
         GoogleProvider({
             clientId: process.env.GOOGLE_ID as string,
