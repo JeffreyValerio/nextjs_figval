@@ -45,15 +45,15 @@ export const AuthProvider = ({ children }: any) => {
     const checkToken = async () => {
         if (!Cookies.get('jwt')) { return }
 
-        try { 
+        try {
             const jwt = Cookies.get('jwt')
-            const user = await fetcher(`${process.env.NEXT_PUBLIC_STRAPI_API_URL}/users/me`,
+            const user = await fetcher(`${process.env.NEXT_PUBLIC_STRAPI_URL}/users/me`,
                 {
                     method: 'GET',
                     headers: {
                         Authorization: `Bearer ${jwt}`,
                     },
-                } 
+                }
             )
             if (jwt) {
                 Cookies.set('user', user);
@@ -67,7 +67,7 @@ export const AuthProvider = ({ children }: any) => {
 
     const loginUser = async (identifier: string, password: string): Promise<boolean> => {
         try {
-            const data = await fetcher(`${process.env.NEXT_PUBLIC_STRAPI_API_URL}/auth/local`,
+            const data = await fetcher(`${process.env.NEXT_PUBLIC_STRAPI_URL}/auth/local`,
                 {
                     method: 'POST',
                     headers: {
@@ -92,8 +92,8 @@ export const AuthProvider = ({ children }: any) => {
     const registerUser = async (username: string, email: string, password: string): Promise<UserRegister> => {
 
         try {
-            const data = await fetcher(`${process.env.NEXT_PUBLIC_STRAPI_API_URL}/auth/local/register`,
-                { 
+            const data = await fetcher(`${process.env.NEXT_PUBLIC_STRAPI_URL}/auth/local/register`,
+                {
                     method: 'POST',
                     headers: {
                         'Content-Type': 'application/json',
@@ -133,7 +133,7 @@ export const AuthProvider = ({ children }: any) => {
         Cookies.remove('country')
         Cookies.remove('telephone')
         Cookies.remove('jwt')
-        
+
         signOut()
     }
 
