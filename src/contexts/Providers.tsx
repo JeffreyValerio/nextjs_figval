@@ -1,7 +1,7 @@
 'use client'
 
 import { SessionProvider } from "next-auth/react"
-import { CartProvider } from "."
+import { AuthProvider, CartProvider } from "."
 
 interface Props {
     children: React.ReactNode
@@ -9,9 +9,11 @@ interface Props {
 const Providers = ({ children }: Props) => {
     return (
         <SessionProvider>
-            <CartProvider>
-                {children}
-            </CartProvider>
+            <AuthProvider>
+                <CartProvider>
+                    {children}
+                </CartProvider>
+            </AuthProvider>
         </SessionProvider>
     )
 }

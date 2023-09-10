@@ -16,7 +16,9 @@
         scroll-behavior: smooth;
     }
 
-    p {
+    p,
+    a,
+    li {
         font-size: 14px;
     }
 

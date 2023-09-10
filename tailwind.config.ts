@@ -17,7 +17,8 @@ const config: Config = {
       'orange': '#f7b83d', // AmarilloNaranja
       'black': '#000000', // Negro
       'gray': '#f2f2f2', // GRIS 
-      'green': '#16a34a'
+      'green': '#16a34a',
+      'slate': '#94a3b8' // SLATE
     },
     extend: {
       backgroundImage: {
