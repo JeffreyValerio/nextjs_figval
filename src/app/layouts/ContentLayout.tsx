@@ -10,4 +10,4 @@ const ContentLayout = ({ children, className }: Props) => {
     )
 }
 
-export default ContentLayout 
+export default ContentLayout

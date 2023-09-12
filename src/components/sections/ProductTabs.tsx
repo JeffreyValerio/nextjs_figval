@@ -12,51 +12,68 @@ function classNames(...classes: any) {
     return classes.filter(Boolean).join(' ')
 }
 
-const ProductTabs = ({ className, features, technical_sheet }: any) => {
+interface Props {
+    className: string,
+    features: any,
+    technical_sheet: any,
+    reviews?: any
+}
+
+const ProductTabs = ({ className, features, technical_sheet, reviews }: Props) => {
+    if (!features && !technical_sheet && !reviews) { return <></> } 
     return (
         <div className={`w-full pt-8 ${className || ''}`}>
             <Tab.Group>
                 <Tab.List className="flex space-x-1 rounded-xl bg-turquoise p-1">
-                    <Tab
-                        className={({ selected }: any) =>
-                            classNames(
-                                'w-full rounded-lg py-2.5 text-sm font-medium leading-5 text-blue-700',
-                                'ring-white ring-opacity-60 ring-offset-2 ring-offset-blue-400',
-                                selected
-                                    ? 'bg-white shadow'
-                                    : 'text-blue-100 hover:bg-white/[0.12] hover:text-white'
-                            )
-                        }
-                    >
-                        Características
-                    </Tab>
-                    <Tab
-                        disabled={technical_sheet ? false : true}
-                        className={({ selected }: any) =>
-                            classNames(`${technical_sheet ? '' : 'disabled'}
-              w-full rounded-lg py-2.5 text-sm font-medium leading-5 text-blue-700`,
-                                'ring-white ring-opacity-60 ring-offset-2 ring-offset-blue-400',
-                                selected
-                                    ? 'bg-white shadow'
-                                    : 'text-blue-100 hover:bg-white/[0.12] hover:text-white'
-                            )
-                        }
-                    >
-                        Ficha técnica
-                    </Tab>
-                    <Tab disabled
-                        className={({ selected }: any) =>
-                            classNames(
-                                'w-full rounded-lg py-2.5 text-sm font-medium leading-5 text-blue-700',
-                                'ring-white ring-opacity-60 ring-offset-2 ring-offset-blue-400',
-                                selected
-                                    ? 'bg-white shadow'
-                                    : 'text-blue-100 hover:bg-white/[0.12] hover:text-white'
-                            )
-                        }
-                    >
-                        Reseñas
-                    </Tab>
+
+                    {features && (
+                        <Tab
+                            className={({ selected }: any) =>
+                                classNames(
+                                    'w-full rounded-lg py-2.5 text-sm font-medium leading-5 text-blue-700',
+                                    'ring-white ring-opacity-60 ring-offset-2 ring-offset-blue-400',
+                                    selected
+                                        ? 'bg-white shadow'
+                                        : 'text-blue-100 hover:bg-white/[0.12] hover:text-white'
+                                )
+                            }
+                        >
+                            Características
+                        </Tab>
+                    )}
+
+                    {technical_sheet && (
+                        <Tab
+                            disabled={technical_sheet ? false : true}
+                            className={({ selected }: any) =>
+                                classNames(`${technical_sheet ? '' : 'disabled'}
+                                     w-full rounded-lg py-2.5 text-sm font-medium leading-5 text-blue-700`,
+                                    'ring-white ring-opacity-60 ring-offset-2 ring-offset-blue-400',
+                                    selected
+                                        ? 'bg-white shadow'
+                                        : 'text-blue-100 hover:bg-white/[0.12] hover:text-white'
+                                )
+                            }
+                        >
+                            Ficha técnica
+                        </Tab>
+                    )}
+
+                    {reviews && (
+                        <Tab disabled
+                            className={({ selected }: any) =>
+                                classNames(
+                                    'w-full rounded-lg py-2.5 text-sm font-medium leading-5 text-blue-700',
+                                    'ring-white ring-opacity-60 ring-offset-2 ring-offset-blue-400',
+                                    selected
+                                        ? 'bg-white shadow'
+                                        : 'text-blue-100 hover:bg-white/[0.12] hover:text-white'
+                                )
+                            }
+                        >
+                            Reseñas
+                        </Tab>
+                    )}
                 </Tab.List>
                 <Tab.Panels className="mt-2">
                     <Tab.Panel
