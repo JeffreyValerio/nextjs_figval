@@ -13,7 +13,7 @@ function classNames(...classes: any) {
 }
 
 interface Props {
-    className: string,
+    className?: string,
     features: any,
     technical_sheet: any,
     reviews?: any

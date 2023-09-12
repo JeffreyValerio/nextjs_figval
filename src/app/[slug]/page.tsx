@@ -29,7 +29,7 @@ const ProductDetailsPage = async ({ params }: Props) => {
     return (
         <>
             <ProductInfo product={product} />
-            <ProductTabs features={product.attributes.features} technical_sheet={product.attributes.technical_sheet} />
+            <ProductTabs features={product?.attributes?.features} technical_sheet={product?.attributes?.technical_sheet} />
         </>
     )
 }
