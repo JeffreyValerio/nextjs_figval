@@ -7,11 +7,11 @@ export const metadata = (product: any, previousImages: any) => {
             canonical: '/',
         },
         title: product?.attributes?.name,
-        description: `product?.attributes?.description`,
+        description: product?.attributes?.description,
         category: product?.attributes?.category?.data?.attributes?.name,
         openGraph: {
             title: product?.attributes?.name,
-            description: `product?.attributes?.description`,
+            description: product?.attributes?.description,
             images: [product?.attributes?.thumbnail?.data?.attributes?.formats?.small?.url, ...previousImages],
             siteName: 'Figval',
             type: 'website',
@@ -22,7 +22,7 @@ export const metadata = (product: any, previousImages: any) => {
         twitter: {
             card: 'summary_large_image',
             title: 'Figval',
-            description: `product?.attributes?.description`,
+            description: product?.attributes?.description,
             creator: 'Figval',
             images: [product?.attributes?.thumbnail?.data?.attributes?.formats?.small?.url, ...previousImages],
         },

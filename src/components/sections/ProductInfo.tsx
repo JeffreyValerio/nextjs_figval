@@ -143,7 +143,7 @@ const ProductInfo = ({ product }: Props) => {
 
                     {/* SHORT DESCRIPTION */}
                     <p className="border-b pb-2">
-                        Lorem ipsum dolor sit amet consectetur adipisicing elit. Expedita, ea error eos veniam necessitatibus molestias delectus ad quo quod mollitia, soluta alias quaerat illum iure obcaecati cupiditate fugit suscipit! Sapiente!
+                        {product.attributes?.description}
                     </p>
 
                     {/* SPECS */}
@@ -153,7 +153,7 @@ const ProductInfo = ({ product }: Props) => {
 
 
                     <div className="grid gap-2 grid-cols-3 md:grid-cols-4 items-center">
-                    {/* <AddToCartButtom product={product.attributes} /> */}
+                        {/* <AddToCartButtom product={product.attributes} /> */}
                         <ItemCounter
                             currentValue={tempCartProduct.quantity || 1}
                             maxValue={product.attributes.stock}

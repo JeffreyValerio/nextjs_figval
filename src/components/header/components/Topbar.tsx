@@ -3,9 +3,9 @@ import ContentLayout from '@/app/layouts/ContentLayout'
 import Link from 'next/link'
 
 const links = [
-    { href: '/about-us', label: 'Quiénes somos' },
-    { href: '/contact', label: 'Contacto' },
-    { href: '/blog', label: 'Blog' },
+    { href: '/site/about-us', label: 'Quiénes somos' },
+    { href: '/site/contact', label: 'Contacto' },
+    { href: '/site/blog', label: 'Blog' },
 ]
 
 const Topbar = () => {

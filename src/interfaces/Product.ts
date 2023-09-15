@@ -2,6 +2,7 @@ export interface IProduct {
     name                : string;
     price               : number;
     slug                : string;
+    description         : string;
     createdAt           : Date;
     updatedAt           : Date;
     publishedAt         : Date;
