@@ -1,7 +1,7 @@
-import { Title } from '@/components';
-import { strapiFetch } from '@/libs'
 import delve from 'dlv';
 import ReactMarkdown from 'react-markdown';
+import { strapiFetch } from '@/libs'
+import { Title } from '@/components';
 
 const AboutUsPage = async () => {
   const [resAboutPage] = await Promise.all([
@@ -15,7 +15,7 @@ const AboutUsPage = async () => {
   if (!aboutPage) { return <></> }
 
   return (
-    <div className="flex flex-col items-center">
+    <div className="flex flex-col items-center mt-8">
 
       <Title className="content-center mb-[5px]">{title}</Title>
       <span className="text-[12px]">Última actualización {date}</span>

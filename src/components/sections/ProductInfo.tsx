@@ -153,12 +153,13 @@ const ProductInfo = ({ product }: Props) => {
 
 
                     <div className="grid gap-2 grid-cols-3 md:grid-cols-4 items-center">
-                        {/* <AddToCartButtom product={product.attributes} /> */}
-                        <ItemCounter
-                            currentValue={tempCartProduct.quantity || 1}
-                            maxValue={product.attributes.stock}
-                            updatedQuantity={updatedQuantity}
-                        />
+                        {(product.attributes.stock > 0) && (
+                            < ItemCounter
+                                currentValue={tempCartProduct.quantity || 1}
+                                maxValue={product.attributes.stock}
+                                updatedQuantity={updatedQuantity}
+                            />
+                        )}
                         {(product.attributes.stock > 0)
                             ? (<div className='grid gap-1 items-center py-2 w-full'>
                                 <button
@@ -192,7 +193,7 @@ const ProductInfo = ({ product }: Props) => {
                     <div className="grid grid-cols-2 gap-4 items-center">
                         {/* IMAGE BRAND */}
                         <div className='gap-2 items-center justify-center p-2'>
-                            <Link href={category?.slug} title={`clic para ver la tienda ${product.attributes.brand.data.attributes.name}`}>
+                            <Link href={`${category?.slug}`} title={`clic para ver la tienda ${product.attributes.brand.data.attributes.name}`}>
                                 <Image
                                     src={imageBrand}
                                     width={200}
