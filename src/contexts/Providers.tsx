@@ -7,6 +7,7 @@ interface Props {
     children: React.ReactNode
 }
 const Providers = ({ children }: Props) => {
+
     return (
         <SessionProvider>
             <AuthProvider>

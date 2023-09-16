@@ -10,7 +10,7 @@ import Topbar from './components/Topbar'
 import { useContext } from 'react'
 import { AuthContext } from '@/contexts'
 import ContentLayout from '@/app/layouts/ContentLayout'
-import { Logo } from '..'
+import { Logo, SearchEngine } from '..'
 
 const Header = () => {
 
@@ -59,9 +59,13 @@ const Header = () => {
                 </ContentLayout>
             </header>
             <nav className='sticky top-0 z-10 bg-black/90 text-white/90'>
-                <ContentLayout className="flex justify-between">
-                    <Logo/>
-                    <ul className='flex gap-4 justify-center items-center'>
+
+                <ContentLayout className="flex items-center justify-between">
+                    <Logo />
+
+                    <SearchEngine />
+
+                    <ul className='hidden sm:flex gap-4 justify-center items-center'>
                         <li> <Link href={'/store'}>Tienda</Link> </li>
                         <li> <Link href={'/categories'}>Categorías</Link> </li>
                     </ul>
