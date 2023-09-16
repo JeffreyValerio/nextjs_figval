@@ -7,6 +7,7 @@ import delve from 'dlv'
 
 import { createAutocomplete } from '@algolia/autocomplete-core'
 import { strapiFetch } from '@/libs'
+import { AiOutlineSearch } from 'react-icons/ai'
 
 const AutocompleteItem = (item: any) => {
     const [isFocused, setIsFocused] = useState(false);
@@ -23,11 +24,11 @@ const AutocompleteItem = (item: any) => {
     const imageName = delve(item, 'attributes.thumbnail.data.attributes.name');
     return (
         <li>
-            <Link href={`/${item.attributes.slug}`} className='hover:bg-blue-300 flex gap-4 p-4 text-black'
+            <Link href={`/${item.attributes.slug}`} className='hover:bg-blue-300 flex gap-4 p-4 text-black border'
                 onBlur={handleBlur} // Manejador de evento onBlur
                 onFocus={handleFocus} // Manejador de evento onFocus
             >
-                <img src={image} alt={imageName} className='w-12 h-12 object-contain' />
+                <img src={image} alt={imageName} className='w-12 h-full object-contain' />
                 <div>
                     <h3 className='text-sm font-semibold'>{item.attributes.name}</h3>
                     <p className='text-xs text-gray-600'>{item.attributes.price}</p>
@@ -45,13 +46,14 @@ const SearchEngine = (props: any) => {
     })
 
     const autocomplete: any = useMemo(() => createAutocomplete({
-        placeholder: 'Busca tu oferta',
+        placeholder: 'Buscar producto',
         onStateChange: ({ state }: any) => setAutocompleteState(state),
         getSources: () => [{
             sourceId: 'figval',
             getItems: ({ query }) => {
                 if (!!query) {
-                    return strapiFetch(`/products?pagination[limit]=5&populate=*&filters[$or][0][name][$containsi]=${query}`, 'no-cache')
+                    // return strapiFetch(`/products?pagination[limit]=5&populate=*&filters[$or][0][name][$containsi]=${query}`, 'no-cache')
+                    return strapiFetch(`/products?pagination[limit]=5&populate=*&filters[name][$containsi]=${query}`, 'no-cache')
                 }
             }
         }],
@@ -71,9 +73,9 @@ const SearchEngine = (props: any) => {
 
     return (
         <form ref={formRef} className="flex justify-center w-full sm:w-2/4" {...formProps}>
-            <div className="flex relative w-full gap-2">
+            <div className="py-2 sm:p-0 flex relative w-full gap-2">
                 <input ref={inputRef} className="flex-1 p-2 text-black" {...inputProps} />
-                <div className="absolute mt-16 top-0 left-0 border border-gray-100 bg-white overflow-hidden rounded-lg shadow-lg z-10" ref={panelRef} {...autocomplete.getPanelProps()}>
+                <div className="absolute mt-12 top-0 left-0 bg-white overflow-hidden shadow-lg z-10" ref={panelRef} {...autocomplete.getPanelProps()}>
                     {autocompleteState.collections.map((collection, index) => {
                         const { items }: any = collection
                         return (
@@ -89,7 +91,7 @@ const SearchEngine = (props: any) => {
                         )
                     })}
                 </div>
-                <button className="p-2 bg-turquoise">Buscar</button>
+                <button type='submit' className="p-2 bg-turquoise"> <AiOutlineSearch className="w-5 h-5" /> </button>
             </div>
         </form>
     )

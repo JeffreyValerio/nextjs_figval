@@ -11,6 +11,7 @@ import { useContext } from 'react'
 import { AuthContext } from '@/contexts'
 import ContentLayout from '@/app/layouts/ContentLayout'
 import { Logo, SearchEngine } from '..'
+import { AiOutlineUser } from 'react-icons/ai'
 
 const Header = () => {
 
@@ -27,7 +28,7 @@ const Header = () => {
             <Topbar />
             <header className='bg-black/90 text-white/90'>
                 <ContentLayout>
-                    <div className={`block sm:flex items-center justify-center sm:justify-between sm:h-[45px] border-b border-[#888888} text-[#999] text-[13px] leading-[45px]`}>
+                    <div className={`hidden sm:flex items-center justify-center sm:justify-between sm:h-[45px] border-b border-[#888888] text-[#999] text-[13px] leading-[45px]`}>
                         <div className='justify-center flex'>CRC</div>
                         <ul className="flex gap-4 font-extralight justify-end">
                             {user ? (
@@ -45,26 +46,23 @@ const Header = () => {
                                     </li>
                                 </>
                             ) : (
-                                <>
-                                    <li >
-                                        <Link href={'/account/login'} className="bg-slate py-2 px-4 text-white">Ingresar</Link>
-                                    </li>
-                                    <li>
-                                        <Link href={'/account/register'}>Registrarme</Link>
-                                    </li>
-                                </>
+                                <Link href={'/account/login'} className="hidden sm:flex gap-1 items-center py-2 px-2 text-white">
+                                    Ingresar <AiOutlineUser className="w-5 h-5" />
+                                </Link>
                             )}
                         </ul>
                     </div>
                 </ContentLayout>
             </header>
             <nav className='sticky top-0 z-10 bg-black/90 text-white/90'>
-
-                <ContentLayout className="flex items-center justify-between">
-                    <Logo />
-
+                <ContentLayout className="flex flex-col sm:flex-row items-center justify-between">
+                    <div className="w-full sm:w-auto flex justify-between items-center">
+                        <Logo />
+                        <Link href={'/account/login'} className="flex gap-1 items-center sm:hidden py-2 px-2 text-white">
+                            Ingresar <AiOutlineUser className="w-5 h-5" />
+                        </Link>
+                    </div>
                     <SearchEngine />
-
                     <ul className='hidden sm:flex gap-4 justify-center items-center'>
                         <li> <Link href={'/store'}>Tienda</Link> </li>
                         <li> <Link href={'/categories'}>Categorías</Link> </li>
