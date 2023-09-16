@@ -30,7 +30,7 @@ const Hero = ({ hero }: any) => {
             swipeable={true}
             interval={6000}
             stopOnHover={true}
-            showArrows={false}
+            showArrows={true}
           >
 
             {carousel && carousel.map((img: any) => {

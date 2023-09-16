@@ -12,7 +12,7 @@ const Footer = async () => {
         // INFORMACION SE RENUEVA CADA 24 HORAS 
         strapiFetch(`/global?populate[footer][populate][footerColumns][populate]=*`, 'force-cache', { next: { revalidate: 86400 } })
     ]);
-    const [navigation] = await Promise.all([resFooter]);
+    const [navigation] = await Promise.all([resFooter]); 
     const links = navigation?.data?.attributes?.footer?.footerColumns;
 
     return (
