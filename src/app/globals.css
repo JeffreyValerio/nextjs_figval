@@ -139,7 +139,6 @@
         }
 
         .productCarousel.carousel-root .carousel .thumb {
-            border: 1px solid #ccc;
             padding: 0;
         }
     }
@@ -153,7 +152,6 @@
         }
 
         .productCarousel.carousel-root .carousel .thumb {
-            border: 1px solid #ccc;
             padding: 0;
             margin: 0;
         }

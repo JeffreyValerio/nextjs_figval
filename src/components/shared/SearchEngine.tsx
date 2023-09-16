@@ -8,31 +8,23 @@ import delve from 'dlv'
 import { createAutocomplete } from '@algolia/autocomplete-core'
 import { strapiFetch } from '@/libs'
 import { AiOutlineSearch } from 'react-icons/ai'
-import { textSpanIsEmpty } from 'typescript'
+import { format } from '@/utils'
+import Image from 'next/image'
 
 const AutocompleteItem = (item: any) => {
-    const [isFocused, setIsFocused] = useState(false);
-
-    const handleBlur = () => {
-        setIsFocused(false);
-    };
-
-    const handleFocus = () => {
-        setIsFocused(true);
-    };
 
     const image = delve(item, 'attributes.thumbnail.data.attributes.url');
     const imageName = delve(item, 'attributes.thumbnail.data.attributes.name');
+
+    if (!item) { return <></> }
+
     return (
         <li key={item.attributes.name}>
-            <Link href={`/${item.attributes.slug}`} className='hover:bg-blue-300 flex gap-4 p-4 text-black border'
-                onBlur={handleBlur} // Manejador de evento onBlur
-                onFocus={handleFocus} // Manejador de evento onFocus
-            >
-                <img src={image} alt={imageName} className='w-12 h-full object-contain' />
+            <Link href={`/${item?.attributes?.slug}`} className='hover:bg-blue-300 flex items-center gap-4 p-4 text-black border-b border-b-[#ccc]'>
+                <Image src={image} alt={imageName} className='w-12 h-full object-contain' width={100} height={100} />
                 <div>
                     <h3 className='text-sm font-semibold'>{item.attributes.name}</h3>
-                    <p className='text-xs text-gray-600'>{item.attributes.price}</p>
+                    <p className='text-xs text-gray-600'>{format(item.attributes.price)}</p>
                 </div>
             </Link>
         </li>
@@ -76,6 +68,7 @@ const SearchEngine = (props: any) => {
         <form ref={formRef} className="flex justify-center w-full sm:w-2/4" {...formProps}>
             <div className="py-2 sm:p-0 flex relative w-full gap-2">
                 <input ref={inputRef} className="flex-1 p-2 text-black" {...inputProps} />
+
                 <div className="absolute mt-12 top-0 left-0 bg-white overflow-hidden shadow-lg z-10" ref={panelRef} {...autocomplete.getPanelProps()}>
                     {autocompleteState.collections.map((collection, index) => {
                         const { items }: any = collection
@@ -91,7 +84,7 @@ const SearchEngine = (props: any) => {
                             </section>
                         )
                     })}
-                </div> 
+                </div>
                 <button type='submit' className="p-2 bg-turquoise"> <AiOutlineSearch className="w-5 h-5" /> </button>
             </div>
         </form>
