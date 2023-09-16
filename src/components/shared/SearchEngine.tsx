@@ -8,6 +8,7 @@ import delve from 'dlv'
 import { createAutocomplete } from '@algolia/autocomplete-core'
 import { strapiFetch } from '@/libs'
 import { AiOutlineSearch } from 'react-icons/ai'
+import { textSpanIsEmpty } from 'typescript'
 
 const AutocompleteItem = (item: any) => {
     const [isFocused, setIsFocused] = useState(false);
@@ -23,7 +24,7 @@ const AutocompleteItem = (item: any) => {
     const image = delve(item, 'attributes.thumbnail.data.attributes.url');
     const imageName = delve(item, 'attributes.thumbnail.data.attributes.name');
     return (
-        <li>
+        <li key={item.attributes.name}>
             <Link href={`/${item.attributes.slug}`} className='hover:bg-blue-300 flex gap-4 p-4 text-black border'
                 onBlur={handleBlur} // Manejador de evento onBlur
                 onFocus={handleFocus} // Manejador de evento onFocus
