@@ -11,11 +11,11 @@ export default async function HomePage() {
     resNewArrivals,
     resBanners,
   ] = await Promise.all([
-    strapiFetch(`/hero?populate=carousel,top,bottom`, 'force-cache'),
+    strapiFetch(`/hero?populate=carousel,top,bottom`, 'force-cache', { next: { revalidate: 60 } }),
     strapiFetch(`/categories?populate=*`, 'force-cache'),
     strapiFetch(`/products?pagination[limit]=6&populate=*&sort=id:desc`, 'no-cache'),
-    strapiFetch(`/banner?populate=principal,aside`, 'force-cache',  { next: { revalidate: 60 } }),
-  ]) 
+    strapiFetch(`/banner?populate=principal,aside`, 'force-cache', { next: { revalidate: 60 } }),
+  ])
   const [hero, categories, newArrivals, banners] = await Promise.all([
     resHero, resCategories, resNewArrivals, resBanners,
   ])
