@@ -90,7 +90,7 @@ const SearchEngine = (props: any) => {
                             </section>
                         )
                     })}
-                </div>
+                </div> 
                 <button type='submit' className="p-2 bg-turquoise"> <AiOutlineSearch className="w-5 h-5" /> </button>
             </div>
         </form>

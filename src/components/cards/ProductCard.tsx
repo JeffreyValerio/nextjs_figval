@@ -8,7 +8,7 @@ import { AddToCartButtom, Rating } from '..';
 const ProductCard = ({ product: { attributes: product }, className }: any) => {
     const image = delve(product, 'thumbnail.data.attributes.url');
     const imageName = delve(product, 'thumbnail.data.attributes.name');
- 
+
     return (
         <div className={`w-full ${className || ""}`}>
             <Link href={`../${product.slug}`} className="overflow-hidden">
@@ -20,7 +20,7 @@ const ProductCard = ({ product: { attributes: product }, className }: any) => {
                     src={image || '/images/no-image.png'}
                     alt={`${imageName || 'no image'}`}
                     width={200}
-                    height={250} 
+                    height={250}
                 />
             </Link>
             <div className="mb-2 mt-3 ">
@@ -39,13 +39,13 @@ const ProductCard = ({ product: { attributes: product }, className }: any) => {
                 </div>
             </div>
             <div className="my-2 flex flex-wrap gap-2 justify-between">
-                <Rating value={product?.rating} max={5} />
+                {/* <Rating value={product?.rating} max={5} /> */}
                 <p>SKU: {product.code}</p>
             </div>
 
             <div>
             </div>
-          <AddToCartButtom product={product}/>
+            <AddToCartButtom product={product} />
         </div>
     )
 }

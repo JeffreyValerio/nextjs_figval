@@ -15,8 +15,8 @@ export default async function HomePage() {
     strapiFetch(`/categories?populate=*`, 'force-cache'),
     strapiFetch(`/products?pagination[limit]=6&populate=*&sort=id:desc`, 'no-cache'),
     strapiFetch(`/banner?populate=principal,aside`, 'force-cache'),
-  ])
-  const [hero, newArrivals, banners] = await Promise.all([
+  ]) 
+  const [hero, categories, newArrivals, banners] = await Promise.all([
     resHero, resCategories, resNewArrivals, resBanners,
   ])
 
