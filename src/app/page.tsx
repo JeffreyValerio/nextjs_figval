@@ -14,7 +14,7 @@ export default async function HomePage() {
     strapiFetch(`/hero?populate=carousel,top,bottom`, 'force-cache'),
     strapiFetch(`/categories?populate=*`, 'force-cache'),
     strapiFetch(`/products?pagination[limit]=6&populate=*&sort=id:desc`, 'no-cache'),
-    strapiFetch(`/banner?populate=principal,aside`, 'force-cache'),
+    strapiFetch(`/banner?populate=principal,aside`, 'force-cache',  { next: { revalidate: 60 } }),
   ]) 
   const [hero, categories, newArrivals, banners] = await Promise.all([
     resHero, resCategories, resNewArrivals, resBanners,
