@@ -52,10 +52,12 @@ export const oAuthProviders = async (user: any) => {
                             'Content-Type': 'application/json',
                         },
                         body: JSON.stringify({
-                            username: user.name,
+                            username: user.name + user.lastname,
                             email: user.email.toLowerCase(),
                             password: '123456',
-                            avatar: user.image
+                            avatar: user.image,
+                            name: user.name,
+                            lastname: user.lastname
                         })
                     }
                 )
@@ -63,11 +65,10 @@ export const oAuthProviders = async (user: any) => {
             } catch (error) {
                 console.error('Error al crear el usuario:', error)
             }
-            console.log({ user })
             return user
         }
     } catch (error) {
         console.error('Error al verificar el usuario:', error);
         return null;
     }
-} 
+}  

@@ -13,6 +13,7 @@ const ButtonProviders = ({ text }: Props) => {
 
     const searchParams = useSearchParams()
     const destination = searchParams.get('p') || '/'
+
     const [providers, setProviders] = useState<any>({})
 
     useEffect(() => {

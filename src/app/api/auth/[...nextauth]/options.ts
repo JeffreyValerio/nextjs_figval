@@ -30,7 +30,7 @@ export const options: NextAuthOptions = {
                     placeholder: '********'
                 },
             },
-            async authorize(credentials:any) {
+            async authorize(credentials: any) {
                 const res = await fetcher(`${process.env.NEXT_PUBLIC_STRAPI_URL}/auth/local`,
                     {
                         method: 'POST',
@@ -55,11 +55,13 @@ export const options: NextAuthOptions = {
             clientId: process.env.GOOGLE_ID as string,
             clientSecret: process.env.GOOGLE_SECRET as string
         })
-    ], 
+    ],
     callbacks: {
-        async jwt({ token, account, user, profile, trigger, session }) {
+        async jwt({ token, account, user, profile }:any) {
             if (account) {
-                token.accessToken = account.id_token
+                token.accessToken = account.id_token;
+                user.name = profile.given_name;
+                user.lastname = profile.family_name;
                 switch (account.type) {
                     case 'oauth':
                         token.user = await oAuthProviders(user)
