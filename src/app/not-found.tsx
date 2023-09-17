@@ -9,4 +9,4 @@ const NotFound = async () => {
     )
 }
 
-export default NotFound
+export default NotFound  

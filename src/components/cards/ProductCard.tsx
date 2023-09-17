@@ -42,9 +42,6 @@ const ProductCard = ({ product: { attributes: product }, className }: any) => {
                 {/* <Rating value={product?.rating} max={5} /> */}
                 <p>SKU: {product.code}</p>
             </div>
-
-            <div>
-            </div>
             <AddToCartButtom product={product} />
         </div>
     )
