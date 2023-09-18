@@ -49,7 +49,7 @@ const SearchEngine = (props: any) => {
             getItems: ({ query }) => {
                 if (!!query) {
                     // return strapiFetch(`/products?pagination[limit]=5&populate=*&filters[$or][0][name][$containsi]=${query}`, 'no-cache')
-                    return strapiFetch(`/products?pagination[limit]=5&populate=*&filters[name][$containsi]=${query}`, 'no-cache')
+                    return strapiFetch(`/products?pagination[limit]=3&populate=*&filters[name][$containsi]=${query}`, 'no-cache')
                 }
             }
         }],
