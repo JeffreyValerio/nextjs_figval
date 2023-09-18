@@ -6,7 +6,7 @@ const Bannners = ({ banners }: any) => {
     const aside = delve(banners, 'data.attributes.aside.data.attributes.url')
 
     return (
-        <section className="block md:grid grid-cols-4 gap-4 mt-4">
+        <section className="block md:grid grid-cols-4 gap-4 my-8">
             <div className="col-start-1 col-end-5 md:col-end-4">
                 <Image
                     className="w-full h-[139px] object-scale-down md:object-cover"

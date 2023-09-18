@@ -16,9 +16,8 @@ const Hero = ({ hero }: any) => {
   const bottom = delve(hero, 'data.attributes.bottom.data.attributes.url')
 
   return (
-    <section className="w-full max-h-[542px] overflow-hidden">
+    <section className="w-full max-h-[542px] overflow-hidden mt-4">
       <div className="grid grid-cols-1 md:grid-cols-4 gap-0 md:gap-4 w-full">
-
         {/* LEFT SIDE */}
         <div className="col-start-1 col-end-2 sm:col-start-1 sm:col-end-4">
           <Carousel
@@ -30,7 +29,7 @@ const Hero = ({ hero }: any) => {
             swipeable={true}
             interval={6000}
             stopOnHover={true}
-            showArrows={true}
+            showArrows={false}
           >
 
             {carousel && carousel.map((img: any) => {
