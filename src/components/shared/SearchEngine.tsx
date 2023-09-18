@@ -21,7 +21,7 @@ const AutocompleteItem = (item: any) => {
     return (
         <li key={item.attributes.name}>
             <Link href={`/${item?.attributes?.slug}`}
-                className='hover:bg-blue-300 flex items-center gap-4 p-4 text-black border-b border-b-[#ccc]'>
+                className='hover:bg-blue flex items-center gap-4 p-4 text-black border-b border-b-[#ccc]'>
                 <Image src={image} alt={imageName} className='w-12 h-full object-contain' width={100} height={100} />
                 <div>
                     <h3 className='text-sm font-semibold'>{item.attributes.name}</h3>
@@ -70,18 +70,16 @@ const SearchEngine = (props: any) => {
     return (
         <form ref={formRef} className="flex justify-center sm:w-2/4 h-full w-full" {...formProps}>
             <div className="flex relative w-full gap-2">
-                <input ref={inputRef} className="flex-1 p-2 text-black" {...inputProps}/>
-
-                <div className="absolute mt-12 top-0 left-0 bg-white overflow-hidden shadow-lg z-10" ref={panelRef} {...autocomplete.getPanelProps()}>
+                <input ref={inputRef} className="flex-1 p-2 text-black" {...inputProps} />
+ 
+                <div className="absolute mt-12 top-0 bg-white overflow-hidden shadow-lg z-10" ref={panelRef} {...autocomplete.getPanelProps()}>
                     {autocompleteState.collections.map((collection, index) => {
                         const { items }: any = collection
                         return (
                             <section key={`section-${index}`}>
                                 {items.length > 0 && (
                                     <ul {...autocomplete.getListProps()}>
-                                        {
-                                            items[0].data.map((item: any) => <AutocompleteItem key={items.code} {...item}/>)
-                                        } 
+                                        {items[0].data.map((item: any) => <AutocompleteItem key={items.code} {...item} />)}
                                     </ul>
                                 )}
                             </section>

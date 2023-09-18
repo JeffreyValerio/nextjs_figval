@@ -74,7 +74,7 @@ const Header = () => {
 
                         <SearchEngine />
 
-                        <ul className='flex gap-2 justify-center items-center'>
+                        <ul className='flex gap-2 justify-center items-center overflow-hidden'>
                             <li>
                                 <Link href={'/favorites'} className="flex">
                                     <AiOutlineHeart className="h-5 w-5" />
