@@ -14,7 +14,7 @@ const ProductCard = ({ product, className }: any) => {
         <>
             {product && (
                 <div className={`w-full ${className || ""}`}>
-                    <Link href={`../${product?.attributes?.attributes?.slug}`} className="overflow-hidden">
+                    <Link href={`../${product.attributes.slug}`} className="overflow-hidden">
                         <Image
                             className="bg-[#f2f2f2] object-scale-down bg-center w-full border h-[250px] p-2"
                             src={image || '/images/no-image.png'}
