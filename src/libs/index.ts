@@ -52,7 +52,7 @@ export const oAuthProviders = async (user: any) => {
                             'Content-Type': 'application/json',
                         },
                         body: JSON.stringify({
-                            username: user.name + user.lastname,
+                            username: user.name + ' ' + user.lastname,
                             email: user.email.toLowerCase(),
                             password: '123456',
                             avatar: user.image,

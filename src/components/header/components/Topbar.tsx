@@ -10,13 +10,13 @@ const links = [
 
 const Topbar = () => {
     return (
-        <div className="hidden bg-black text-white sm:flex items-center h-8">
+        <div className="hidden bg-black text-white sm:flex items-center h-auto py-1 text-[12px]">
             <ContentLayout className="w-full flex justify-between">
                 <nav>
                     <ul className="flex gap-4">
                         {links.map((link: any) => (
                             <li key={link.href}>
-                                <Link href={link.href}>{link.label}</Link>
+                                <Link href={link.href} >{link.label}</Link>
                             </li>
                         ))}
                     </ul>

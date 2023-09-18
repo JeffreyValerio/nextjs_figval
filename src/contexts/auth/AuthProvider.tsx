@@ -33,37 +33,9 @@ export const AuthProvider = ({ children }: any) => {
 
     useEffect(() => {
         if (status === 'authenticated') {
-            console.log({ user: data })
             dispatch({ type: '[Auth] - Login', payload: data?.user as User })
         }
     }, [status, data])
-
-    // useEffect(() => {
-    //     checkToken()
-    // }, [])
-
-    const checkToken = async () => {
-        if (!Cookies.get('jwt')) { return }
-
-        try {
-            const jwt = Cookies.get('jwt')
-            const user = await fetcher(`${process.env.NEXT_PUBLIC_STRAPI_URL}/users/me`,
-                {
-                    method: 'GET',
-                    headers: {
-                        Authorization: `Bearer ${jwt}`,
-                    },
-                }
-            )
-            if (jwt) {
-                Cookies.set('user', user);
-                dispatch({ type: '[Auth] - Login', payload: user })
-            }
-        } catch (error) {
-            Cookies.remove('jwt');
-            Cookies.remove('user');
-        }
-    }
 
     const loginUser = async (identifier: string, password: string): Promise<boolean> => {
         try {

@@ -28,7 +28,7 @@ const Header = () => {
             <Topbar />
             <header className='bg-black/90 text-white/90'>
                 <ContentLayout>
-                    <div className={`hidden sm:flex items-center justify-center sm:justify-between sm:h-[45px] border-b border-[#888888] text-[#999] text-[13px] leading-[45px]`}>
+                    <div className={`hidden sm:flex items-center justify-center sm:justify-between border-b border-[#888888] text-[#999] text-[13px] leading-[45px]`}>
                         <div className='justify-center flex'>CRC</div>
                         <ul className="flex gap-4 font-extralight justify-end">
                             {user ? (
@@ -36,7 +36,7 @@ const Header = () => {
                                     <li className="flex gap-2 items-center">
                                         <Image className="rounded-full" src={user.image ? user.image as string : user.avatar || '/images/no-picture.png'}
                                             alt={`Image of ${user.name}`} width={30} height={30} />
-                                        <Link href={'/account/profile'}>{user.name ? user.name : user.username}</Link>
+                                        <Link href={'/account/profile'}>{user.username ? user.username : user.username}</Link>
                                     </li>
                                     |
                                     <li>
