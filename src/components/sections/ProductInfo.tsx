@@ -38,14 +38,14 @@ const ProductInfo = ({ product }: Props) => {
     const { addProductToCart } = useContext(CartContext)
 
     const [tempCartProduct, setTempCartProduct] = useState<ICart>({
-        id: product.id,
-        name: product.attributes.name,
+        id: product?.id,
+        name: product?.attributes?.name,
         image: product?.attributes?.thumbnail?.data?.attributes?.formats?.small?.url,
-        price: product.attributes.price,
+        price: product?.attributes?.price,
         size: undefined,
-        slug: product.attributes.slug,
+        slug: product?.attributes?.slug,
         quantity: 1,
-        stock: product.attributes.stock
+        stock: product?.attributes?.stock
     })
 
     const updatedQuantity = (quantity: number) => {

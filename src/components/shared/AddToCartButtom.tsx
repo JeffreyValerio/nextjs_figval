@@ -21,18 +21,17 @@ interface Props {
 
 const AddToCartButtom = ({ product }: any) => {
 
-
     const { addProductToCart } = useContext(CartContext)
 
     const [tempCartProduct, setTempCartProduct] = useState<ICart>({
         id: product?.id,
-        name: product?.name,
-        image: product?.thumbnail?.data?.attributes?.formats?.small?.url,
-        price: product?.price,
+        name: product?.attributes?.name,
+        image: product?.attributes?.thumbnail?.data?.attributes?.formats?.small?.url,
+        price: product?.attributes?.price,
         size: undefined,
-        slug: product?.slug,
+        slug: product?.attributes?.slug,
         quantity: 1,
-        stock: product?.stock
+        stock: product?.attributes?.stock
     })
 
     const updatedQuantity = (quantity: number) => {
@@ -45,7 +44,7 @@ const AddToCartButtom = ({ product }: any) => {
     const addToCart = () => {
         // if (!tempCartProduct.size) { return }
         addProductToCart(tempCartProduct)
-        toast.success(`¡${product.name} 🎉 SE AGREGÓ AL CARRITO!`, {
+        toast.success(`¡${product?.attributes?.name} 🎉 SE AGREGÓ AL CARRITO!`, {
             toastId: product.id,
             className: "uppercase text-bold",
             position: "bottom-right",
@@ -77,7 +76,7 @@ const AddToCartButtom = ({ product }: any) => {
             />
 
             <div className="flex justify-between items-center">
-                {(product?.stock > 0)
+                {(product?.attributes?.stock > 0)
                     ? (< ItemCounter
                         currentValue={tempCartProduct.quantity || 1}
                         maxValue={product?.stock}
@@ -85,11 +84,11 @@ const AddToCartButtom = ({ product }: any) => {
                     />)
                     : (<></>)
                 }
-                {(product?.stock > 0)
-                    ? (<div className='py-2 flex justify-end'> 
+                {(product?.attributes?.stock > 0)
+                    ? (<div className='py-2 flex justify-end'>
                         <button
                             onClick={addToCart}
-                            aria-label={`Add ${product?.name} to your cart`}
+                            aria-label={`Add ${product?.attributes?.name} to your cart`}
                             type="button"
                             className="bg-black px-2 py-3 text-base font-medium text-white hover:bg-violet-700 focus:outline-none focus:ring-2 focus:ring-violet-500"
                         >
