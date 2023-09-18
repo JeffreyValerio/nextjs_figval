@@ -1,22 +1,40 @@
+'use client'
+
+import React, { useContext } from 'react';
+
 import Link from "next/link";
-import React from 'react';
+
+import { AiOutlineHeart } from "react-icons/ai";
+import { RiShoppingBag3Line } from "react-icons/ri";
+
+import { CartContext } from "@/contexts";
+import { SearchEngine } from "@/components";
 
 
-const MenuMobile = ({ links }: any) => {
+
+const MenuMobile = () => {
+
+    const { numberOfItems } = useContext(CartContext)
 
     return (
-        <div className="w-full ml-[-15px] py-[15px] px-[30px] absolute buttom-0 flex flex-col gap-6 sm:hidden z-30 bg-black/90">
-            <div>
-                <ul className="flex flex-col justify-end gap-6 text-[12px] font-[500] uppercase leading-[22px]">
-                    {links.map((item: any) => {
-                        return (
-                            <React.Fragment key={item.id}>
-                                <li><Link href={`../${item.href}`}>{item.label}</Link></li>
-                            </React.Fragment>
-                        )
-                    })}
-                </ul>
-            </div>
+        <div className="flex gap-2 justify-between sm:hidden overflow-hidden">
+            <SearchEngine />
+
+            <ul className='flex gap-2 justify-center items-center'>
+                <li>
+                    <Link href={'/favorites'} className="flex">
+                        <AiOutlineHeart className="h-5 w-5" />
+                        <span className="text-sm font-bold">0</span>
+                    </Link>
+                </li>
+                |
+                <li>
+                    <Link href="/cart" className="flex">
+                        <RiShoppingBag3Line className="h-5 w-5" />
+                        <span className="text-sm font-bold">{numberOfItems > 9 ? '+9' : numberOfItems}</span>
+                    </Link>
+                </li>
+            </ul>
         </div>
     )
 }

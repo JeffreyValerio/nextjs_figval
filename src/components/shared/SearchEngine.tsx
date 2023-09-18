@@ -68,8 +68,8 @@ const SearchEngine = (props: any) => {
     })
 
     return (
-        <form ref={formRef} className="flex justify-center w-full sm:w-2/4" {...formProps}>
-            <div className="py-2 sm:p-0 flex relative w-full gap-2">
+        <form ref={formRef} className="flex justify-center sm:w-2/4 h-full w-full" {...formProps}>
+            <div className="flex relative w-full gap-2">
                 <input ref={inputRef} className="flex-1 p-2 text-black" {...inputProps}/>
 
                 <div className="absolute mt-12 top-0 left-0 bg-white overflow-hidden shadow-lg z-10" ref={panelRef} {...autocomplete.getPanelProps()}>

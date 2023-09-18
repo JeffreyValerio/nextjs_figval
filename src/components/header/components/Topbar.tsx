@@ -21,7 +21,7 @@ const Topbar = () => {
                         ))}
                     </ul>
                 </nav>
-                <Link href={`mailto:ventas@figval.com`} target="_blank">
+                <Link href={`mailto:ventas@figval.com`} target="_blank" title='Clic para enviar correo'>
                     ventas@figval.com
                 </Link>
             </ContentLayout>
