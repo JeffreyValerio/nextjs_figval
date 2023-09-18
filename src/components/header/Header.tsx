@@ -65,12 +65,7 @@ const Header = () => {
                 <ContentLayout >
                     <div className="hidden sm:flex flex-col sm:flex-row items-center justify-between">
 
-                        <div className="w-full sm:w-auto flex justify-between items-center">
-                            <Logo />
-                            <Link href={'/account/login'} className="flex gap-1 items-center sm:hidden py-2 px-2 text-white">
-                                Ingresar <AiOutlineUser className="w-5 h-5" />
-                            </Link>
-                        </div>
+                        <Logo />
 
                         <SearchEngine />
 
@@ -94,9 +89,30 @@ const Header = () => {
                     <div className="flex sm:hidden flex-col content-center">
                         <div className="w-full flex justify-between items-center py-2">
                             <Logo />
-                            <Link href={'/account/login'} className="flex gap-1 items-center sm:hidden text-white">
-                                Ingresar <AiOutlineUser className="w-5 h-5" />
-                            </Link>
+                            <ul className="flex gap-4 font-light justify-end items-center">
+                                {user ? (
+                                    <>
+                                        <li className="flex gap-2 items-center hover:text-white">
+                                            <Image className="rounded-full" src={user.image ? user.image as string : user.avatar || '/images/no-picture.png'}
+                                                alt={`Image of ${user.name}`} width={30} height={30} />
+                                            <Link href={'/account/profile'}>{user.username ? user.username : user.username}</Link>
+                                        </li>
+                                        |
+                                        <li className="hover:text-white">
+                                            <button
+                                                onClick={() => {
+                                                    signOut({ callbackUrl: destination }),
+                                                        logout()
+                                                }}
+                                            >Salir</button>
+                                        </li>
+                                    </>
+                                ) : (
+                                    <Link href={'/account/login?p'} className="flex gap-1 items-center py-2 px-2 text-white">
+                                        Ingresar <AiOutlineUser className="w-5 h-5" />
+                                    </Link>
+                                )}
+                            </ul>
                         </div>
 
                         <MenuMobile />
